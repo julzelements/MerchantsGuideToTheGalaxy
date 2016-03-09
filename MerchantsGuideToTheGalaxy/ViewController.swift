@@ -10,16 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+  @IBOutlet weak var programInput: UITextView!
+  @IBOutlet weak var programOutput: UITextView!
+  @IBOutlet weak var testOutput: UITextView!
+  
+  @IBAction func convertUnits(sender: UIButton) {
+    runTest()
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  
+  func runTest() {
+    //If the testOutput and the ProgramOutput are the same, the Output will show green
+    var testResultColor: UIColor
+    testResultColor = (programOutput.text == testOutput.text ? UIColor.greenColor() : UIColor.redColor())
+    programOutput.backgroundColor = testResultColor
   }
-
 
 }
 

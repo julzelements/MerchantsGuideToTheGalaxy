@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,20 +18,108 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aMN-gP-9Io">
-                                <rect key="frame" x="20" y="20" width="560" height="265"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hl-Zb-aJf">
+                                <rect key="frame" x="253" y="285" width="95" height="30"/>
+                                <state key="normal" title="Convert Units"/>
+                                <connections>
+                                    <action selector="convertUnits:" destination="BYZ-38-t0r" eventType="touchUpInside" id="etW-mY-iGb"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="5" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="o6h-yf-tqA">
+                                <rect key="frame" x="20" y="352" width="276" height="228"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">glob is Iprok is Vpish is Xtegj is Lglob glob Silver is 34 Creditsglob prok Gold is 57800 Creditspish pish Iron is 3910 Creditshow much is pish tegj glob glob ?how many Credits is glob prok Silver ?how many Credits is glob prok Gold ?how many Credits is glob prok Iron ?how much wood could a woodchuck chuck if a woodchuck could chuck wood ?</string>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="266" id="IyR-3K-jMp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="IyR-3K-jMp"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="5" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jbr-4u-nHs">
+                                <rect key="frame" x="304" y="352" width="19" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hl-Zb-aJf">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Test Output" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHN-CS-AdC">
+                                <rect key="frame" x="132" y="323" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Program Output" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpw-cD-Cha">
+                                <rect key="frame" x="371" y="323" width="124" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Far-Ui-gQa">
+                                <rect key="frame" x="281" y="28" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="5" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mzp-22-OPi">
+                                <rect key="frame" x="20" y="57" width="560" height="220"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="257" id="Z0j-2O-J3X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Z0j-2O-J3X"/>
+                                    </mask>
+                                </variation>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Far-Ui-gQa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0gU-fH-eHW"/>
+                            <constraint firstItem="QHN-CS-AdC" firstAttribute="centerX" secondItem="o6h-yf-tqA" secondAttribute="centerX" id="1H0-Yp-SjX"/>
+                            <constraint firstItem="Mzp-22-OPi" firstAttribute="centerX" secondItem="3hl-Zb-aJf" secondAttribute="centerX" id="841-CZ-j82"/>
+                            <constraint firstItem="QHN-CS-AdC" firstAttribute="top" secondItem="3hl-Zb-aJf" secondAttribute="bottom" constant="8" symbolic="YES" id="91G-Bx-fUZ"/>
+                            <constraint firstItem="Far-Ui-gQa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Axy-CQ-c7K"/>
+                            <constraint firstItem="Mzp-22-OPi" firstAttribute="top" secondItem="Far-Ui-gQa" secondAttribute="bottom" constant="8" symbolic="YES" id="Dh6-Jc-c0K"/>
+                            <constraint firstItem="jbr-4u-nHs" firstAttribute="bottom" secondItem="o6h-yf-tqA" secondAttribute="bottom" id="Gq9-Pz-Gwg"/>
+                            <constraint firstItem="o6h-yf-tqA" firstAttribute="width" secondItem="jbr-4u-nHs" secondAttribute="width" id="LZL-UV-mLd"/>
+                            <constraint firstItem="o6h-yf-tqA" firstAttribute="leading" secondItem="Mzp-22-OPi" secondAttribute="leading" id="OnS-9O-Qd4"/>
+                            <constraint firstItem="jbr-4u-nHs" firstAttribute="leading" secondItem="o6h-yf-tqA" secondAttribute="trailing" constant="8" symbolic="YES" id="UC5-Rb-FIx"/>
+                            <constraint firstItem="Mzp-22-OPi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="W4O-oY-vhb"/>
+                            <constraint firstAttribute="bottom" secondItem="o6h-yf-tqA" secondAttribute="bottom" constant="20" symbolic="YES" id="a4b-kq-dLD"/>
+                            <constraint firstItem="3hl-Zb-aJf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bCJ-df-RGL"/>
+                            <constraint firstItem="hpw-cD-Cha" firstAttribute="centerX" secondItem="jbr-4u-nHs" secondAttribute="centerX" id="dfD-1t-p47"/>
+                            <constraint firstItem="o6h-yf-tqA" firstAttribute="top" secondItem="QHN-CS-AdC" secondAttribute="bottom" constant="8" symbolic="YES" id="f5j-kQ-pCO"/>
+                            <constraint firstItem="Far-Ui-gQa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="lYp-gQ-CoZ"/>
+                            <constraint firstItem="jbr-4u-nHs" firstAttribute="top" secondItem="hpw-cD-Cha" secondAttribute="bottom" constant="8" id="mb8-t7-M5O"/>
+                            <constraint firstItem="Mzp-22-OPi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mqO-8I-h0X"/>
+                            <constraint firstItem="hpw-cD-Cha" firstAttribute="top" secondItem="3hl-Zb-aJf" secondAttribute="bottom" constant="8" symbolic="YES" id="nWk-qW-5mf"/>
+                            <constraint firstItem="3hl-Zb-aJf" firstAttribute="top" secondItem="Mzp-22-OPi" secondAttribute="bottom" constant="8" symbolic="YES" id="pFh-AF-Pgy"/>
+                            <constraint firstItem="jbr-4u-nHs" firstAttribute="trailing" secondItem="Mzp-22-OPi" secondAttribute="trailing" id="qwT-vv-MDi"/>
+                            <constraint firstItem="Far-Ui-gQa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="tyF-4m-CK2"/>
+                            <constraint firstItem="Mzp-22-OPi" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="v9N-KH-4JE"/>
+                            <constraint firstItem="jbr-4u-nHs" firstAttribute="top" secondItem="o6h-yf-tqA" secondAttribute="top" id="y1V-3R-Cz6"/>
+                            <constraint firstItem="Mzp-22-OPi" firstAttribute="top" secondItem="Far-Ui-gQa" secondAttribute="bottom" constant="8" symbolic="YES" id="zai-fQ-L68"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="W4O-oY-vhb"/>
+                                <exclude reference="zai-fQ-L68"/>
+                                <exclude reference="0gU-fH-eHW"/>
+                                <exclude reference="lYp-gQ-CoZ"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="programInput" destination="Mzp-22-OPi" id="Nx2-aC-u6e"/>
+                        <outlet property="programOutput" destination="jbr-4u-nHs" id="Rxf-WA-Xcs"/>
+                        <outlet property="testOutput" destination="o6h-yf-tqA" id="EUm-iE-5pZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
