@@ -22,6 +22,7 @@
 		2B2610061C9001B0004CC82D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B2610091C9001B0004CC82D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B26100B1C9001B0004CC82D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B706CA71C92C85B009E686D /* RomanNumerals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RomanNumerals.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +61,7 @@
 				2B2610061C9001B0004CC82D /* Assets.xcassets */,
 				2B2610081C9001B0004CC82D /* LaunchScreen.storyboard */,
 				2B26100B1C9001B0004CC82D /* Info.plist */,
+				2B706CA71C92C85B009E686D /* RomanNumerals.playground */,
 			);
 			path = MerchantsGuideToTheGalaxy;
 			sourceTree = "<group>";
@@ -285,6 +287,7 @@
 				2B2610101C9001B0004CC82D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
