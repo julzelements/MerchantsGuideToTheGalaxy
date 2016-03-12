@@ -2,7 +2,8 @@ import Foundation
 
 public class MerchantsGuideInputHandler {
   
-  let data = MerchantsGuideData()
+  let data = MerchantsGuideDictionarys()
+  
   
   func isAlienNumeralValue(inputString: String, romanNumerals: [String: Int]) -> Bool {
     var isValidQuery = false
