@@ -5,8 +5,7 @@ import Foundation
 
 var str = "Hello, playground"
 
-
-let data = DontForgetYourTowelData()
+let data = MerchantsGuideData()
 
 data.romanNumerals["V"]
 data.alienNumerals["glob"] = 5
@@ -73,8 +72,6 @@ isAlienGoodsQuery(testInputA)
 isAlienGoodsQuery(testInputB)
 isAlienGoodsQuery(testInputC)
 print(isAlienGoodsQuery(testInputD)) //This one should pass
-
-
 
 
 
