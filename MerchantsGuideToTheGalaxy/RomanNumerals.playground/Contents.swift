@@ -10,17 +10,12 @@ let RNs = [String](RNValues.keys)
 
 let RNTheNumberOne = "I"
 let RNTheNumberFour = "IV"
-let RNNineteenHundredAndThree = "MCMXLIV"
+let RNNineteenFourtyFour = "MCMXLIV"
 
-
-
-func stringToArray(inputString: String) -> Array<String> {
- return inputString.componentsSeparatedByString(" ")
-}
-
+//This function checks the input for the presence of a single digit Roman Numeral
+//"IV" would return false, "V" would return true
 func checkSentenceForRNs(sentence: String) -> Bool {
   var sentenceHasRN = false
-  
   //Split up "sentence" by whitespace and add to array: "words"
   let words = sentence.componentsSeparatedByString(" ")
   for word in words {
@@ -31,77 +26,66 @@ func checkSentenceForRNs(sentence: String) -> Bool {
   return sentenceHasRN
 }
 
-func convertArrayCharactersToStrings(arrayOfCharacters: [Character]) -> [String] {
-  var arrayOfStrings = [String]()
-  for character in arrayOfCharacters {
-    
-    arrayOfStrings.append(String(character))
+
+func splitWordToArrayOfCharactersOfTypeString(word: String) -> [String] {
+//input: "IVDFB"
+//output: ["I", "V", "D", "F", "B"]
+//Note that the characters are returned as type: String 
+  
+  var arrayOfCharacters = [String]()
+  for character in word.characters {
+    arrayOfCharacters.append(String(character))
   }
-  return arrayOfStrings
+  return arrayOfCharacters
 }
 
-func testCharacterArray() -> [Character] {
-let testCharacterArray = [Character]()
-for character in "VICVM" {
-  testCharacterArray.append(character)
+func rNDigitsToValues(RNDigitsArray: [String]) -> [Int] {
+  //input: ["I", "V", "C"]
+  //output: [1, 5, 100]
+  var RNValuesArray = [Int]()
+  for RNIndex in RNDigitsArray {
+    if let RNValue = RNValues[RNIndex] {
+      RNValuesArray.append(RNValue)
+    }
+  }
+  return RNValuesArray
 }
-}
-func RNtoValue(RN: String) -> Int {
+
+rNDigitsToValues(["C", "V"])
+
+
+
+func rNtoValue(RN: String) -> Int {
   var totalRNValueReturned = 0
-  let RNArray = [""]
-let reversedRNArray = RNArray.reverse()
-  for numeral in reversedRNArray {
-    if let value = RNValues[numeral] {
-      print(value)
-      totalRNValueReturned += value
+  //The ouput from .reverse() needs to be cast to an Array object
+  let reversedRNArray = Array(splitWordToArrayOfCharactersOfTypeString(RN).reverse())
+  let reversedRNArrayValues = rNDigitsToValues(reversedRNArray)
+ 
+  totalRNValueReturned += reversedRNArrayValues[0]
+  
+  
+  for j in 1..<reversedRNArrayValues.count {
+    let i = j - 1
+    if reversedRNArrayValues[i] <= reversedRNArrayValues[j] {
+      totalRNValueReturned += reversedRNArrayValues[j]
+    } else if reversedRNArrayValues[i] > reversedRNArrayValues[j] {
+      totalRNValueReturned -= reversedRNArrayValues[j]
     }
   }
-
-return totalRNValueReturned
+  return totalRNValueReturned
 }
-
-RNtoValue("MVMIX")
-
-
-let testIV = ["I", "V"]
-
-if testIV[0] < testIV[1] {
-  if let i = RNValues[testIV[0]] {
-    if let j = RNValues[testIV[1]] {
-      print(j - i)
-    }
-  }
-}
-
-
-let testVI = ["V", "I"]
-
-if testVI[0] > testVI[1] {
-  if let i = RNValues[testVI[0]] {
-    if let j = RNValues[testVI[1]] {
-      print(i + j)
-    }
-  }
-}
-
-
-
-
-
-
-
 
 
 // Tests ------ Tests ------ Tests ------ Tests ------ Tests ------ Tests ------ Tests
-
-//stringToArrayTest
-stringToArray("glob is I") == ["glob", "is", "I"] ? print("test works") : print("test fails")
 
 //checkForRNs
 checkSentenceForRNs("glob is I") == true ? print("test works") : print("test fails")
 checkSentenceForRNs("glob glob Silver is 34 Credits") == false ? print("test works") : print("test fails")
 
 //RNtoValue
-RNtoValue(RNTheNumberOne) == 1 ? print("test works") : print("test fails")
-RNtoValue(RNTheNumberFour) == 4 ? print("test works") : print("test fails")
-RNtoValue(RNNineteenHundredAndThree) == 1903 ? print("test works") : print("test fails")
+rNtoValue(RNTheNumberOne) == 1 ? print("test works") : print("test fails")
+rNtoValue(RNTheNumberFour) == 4 ? print("test works") : print("test fails")
+rNtoValue(RNNineteenFourtyFour) == 1944 ? print("test works") : print("test fails")
+
+//convertDigitsArrayToValuesArray
+rNDigitsToValues(["I", "V", "C"]) == [1, 5, 100] ? print("test works") : print("test fails")

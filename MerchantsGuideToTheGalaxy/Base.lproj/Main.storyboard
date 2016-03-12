@@ -39,20 +39,14 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="5" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jbr-4u-nHs">
-                                <rect key="frame" x="304" y="352" width="19" height="33"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="5" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jbr-4u-nHs">
+                                <rect key="frame" x="304" y="352" width="276" height="228"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Test Output" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHN-CS-AdC">
-                                <rect key="frame" x="132" y="323" width="91" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Program Output" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpw-cD-Cha">
-                                <rect key="frame" x="371" y="323" width="124" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Output" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHN-CS-AdC">
+                                <rect key="frame" x="113" y="323" width="91" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -77,6 +71,12 @@
                                     </mask>
                                 </variation>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Program Output" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpw-cD-Cha">
+                                <rect key="frame" x="380" y="323" width="124" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -85,6 +85,7 @@
                             <constraint firstItem="Mzp-22-OPi" firstAttribute="centerX" secondItem="3hl-Zb-aJf" secondAttribute="centerX" id="841-CZ-j82"/>
                             <constraint firstItem="QHN-CS-AdC" firstAttribute="top" secondItem="3hl-Zb-aJf" secondAttribute="bottom" constant="8" symbolic="YES" id="91G-Bx-fUZ"/>
                             <constraint firstItem="Far-Ui-gQa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Axy-CQ-c7K"/>
+                            <constraint firstItem="hpw-cD-Cha" firstAttribute="baseline" secondItem="QHN-CS-AdC" secondAttribute="baseline" id="AyJ-VM-ZsU"/>
                             <constraint firstItem="Mzp-22-OPi" firstAttribute="top" secondItem="Far-Ui-gQa" secondAttribute="bottom" constant="8" symbolic="YES" id="Dh6-Jc-c0K"/>
                             <constraint firstItem="jbr-4u-nHs" firstAttribute="bottom" secondItem="o6h-yf-tqA" secondAttribute="bottom" id="Gq9-Pz-Gwg"/>
                             <constraint firstItem="o6h-yf-tqA" firstAttribute="width" secondItem="jbr-4u-nHs" secondAttribute="width" id="LZL-UV-mLd"/>
@@ -96,7 +97,7 @@
                             <constraint firstItem="hpw-cD-Cha" firstAttribute="centerX" secondItem="jbr-4u-nHs" secondAttribute="centerX" id="dfD-1t-p47"/>
                             <constraint firstItem="o6h-yf-tqA" firstAttribute="top" secondItem="QHN-CS-AdC" secondAttribute="bottom" constant="8" symbolic="YES" id="f5j-kQ-pCO"/>
                             <constraint firstItem="Far-Ui-gQa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="lYp-gQ-CoZ"/>
-                            <constraint firstItem="jbr-4u-nHs" firstAttribute="top" secondItem="hpw-cD-Cha" secondAttribute="bottom" constant="8" id="mb8-t7-M5O"/>
+                            <constraint firstItem="jbr-4u-nHs" firstAttribute="top" secondItem="hpw-cD-Cha" secondAttribute="bottom" constant="8" symbolic="YES" id="mb8-t7-M5O"/>
                             <constraint firstItem="Mzp-22-OPi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mqO-8I-h0X"/>
                             <constraint firstItem="hpw-cD-Cha" firstAttribute="top" secondItem="3hl-Zb-aJf" secondAttribute="bottom" constant="8" symbolic="YES" id="nWk-qW-5mf"/>
                             <constraint firstItem="3hl-Zb-aJf" firstAttribute="top" secondItem="Mzp-22-OPi" secondAttribute="bottom" constant="8" symbolic="YES" id="pFh-AF-Pgy"/>
@@ -112,6 +113,7 @@
                                 <exclude reference="zai-fQ-L68"/>
                                 <exclude reference="0gU-fH-eHW"/>
                                 <exclude reference="lYp-gQ-CoZ"/>
+                                <exclude reference="mb8-t7-M5O"/>
                             </mask>
                         </variation>
                     </view>
