@@ -1,8 +1,5 @@
 import Foundation
 
-public func doubleTheNumber (i: Int) -> Int {
-  return (i * 2)
-}
 
 public class DontForgetYourTowelData {
   
@@ -15,7 +12,19 @@ public class DontForgetYourTowelData {
  public var romanNumerals: [String: Int]
  public var alienNumerals: [String: Int]
  public var alienGoods: [String: Int]
-  public var alienNumeralsSet: Set[String: Int]
+
+  public func setFromDictionaryKeys(inputDictionary: [String: Int]) -> Set<String> {
+    let dictionaryKeys = [String](inputDictionary.keys)
+    let setOfKeys = arrayToSet(dictionaryKeys)
+    return setOfKeys
+  }
   
+  public func arrayToSet(inputArray: [String]) -> Set<String> {
+    var outputSet = Set<String>()
+    for element in inputArray {
+      outputSet.insert(element)
+    }
+    return outputSet
+  }
   
 }
