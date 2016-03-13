@@ -22,3 +22,4 @@ if identifyAlienGoods(alienGoodsValueSentence: testInputB) == "silver" {
 } else {
   print("test failed")
 }
+

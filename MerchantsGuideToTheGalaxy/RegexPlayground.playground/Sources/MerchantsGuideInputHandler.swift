@@ -121,19 +121,36 @@ public class MerchantsGuideInputHandler {
   
   
   
-//  //This function interprets a sentence of type .AlienGoodsQuery
-//  //It returns a tuple containing: value of Goods (Int), alienNumber (String), alienGoods (String)
-//  //
-//  //Example IO: input: ("how many Credits is glob prok Iron", ["glob": 1, "prok": 5], ["Iron": 20])
-//  //           output: (782, "glob prok", "Iron")
-//  func handleAlienGoodsQuery(sentence: String, alienNumeralDictionary: [String: Int], alienGoodsDictionary: [String: Int]) {
-//    if let alienNumerals = getAlienNumeralsFromSentence(sentence, alienNumeralDictionary: alienNumeralDictionary) {
-//      if let goodsQuantity = getAlienNumberValue(alienNumerals, alienNumeralDictionary: alienNumeralDictionary) {
-//         if let goods = getAlienGoodsFromSentence(sentence, alienNumeralDictionary: <#T##[String : Int]#>)
-//      }
-//    }
-//  }
-//}
+  //This function interprets a sentence of type .AlienGoodsQuery
+  //It returns a tuple containing: value of Goods (Int), alienNumber (String), alienGoods (String)
+  //
+  //Example IO: input: ("how many Credits is glob prok Iron", ["glob": 1, "prok": 5], ["Iron": 20])
+  //           output: (782, "glob prok", "Iron")
+  public func handleAlienGoodsQuery(sentence: String, alienNumeralDictionary: [String: Int], alienGoodsDictionary: [String: Int]) -> (price: Int, quantity: String, item: String){
+    let words = sentence.componentsSeparatedByString(" ")
+    var alienItem = String()
+    var alienItemQuantity = String()
+    var alienItemPrice = Int()
+    
+   
+    if let alienNumerals = getAlienNumeralsFromSentence(sentence, alienNumeralDictionary: alienNumeralDictionary) {
+      alienItemQuantity = alienNumerals.joinWithSeparator(" ")
+      if let alienItemQuantity = getAlienNumberValue(alienNumerals, alienNumeralDictionary: alienNumeralDictionary) {
+        let alienGoods = Array(alienGoodsDictionary.keys)
+        
+        for word in words {
+          if alienGoods.contains(word) {
+            alienItem = word
+          }
+        alienItemPrice = alienItemQuantity * alienGoodsDictionary[alienItem]!
+      
+        }
+      }
+    }
+    return (alienItemPrice, alienItemQuantity, alienItem)
+  }
+
+
 
   
   
