@@ -25,6 +25,8 @@
 		2B706CA71C92C85B009E686D /* RomanNumerals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RomanNumerals.playground; sourceTree = "<group>"; };
 		2B706CA81C93DB34009E686D /* RegexPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RegexPlayground.playground; sourceTree = "<group>"; };
 		2B706CA91C94E19B009E686D /* Archived.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Archived.playground; sourceTree = "<group>"; };
+		2B706CD61C952B3C009E686D /* CastingStrings.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CastingStrings.playground; sourceTree = "<group>"; };
+		2B706CD71C952FB7009E686D /* intepretingAlienNumerals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = intepretingAlienNumerals.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,8 @@
 		2B260FF31C9001AF004CC82D = {
 			isa = PBXGroup;
 			children = (
+				2B706CD71C952FB7009E686D /* intepretingAlienNumerals.playground */,
+				2B706CD61C952B3C009E686D /* CastingStrings.playground */,
 				2B260FFE1C9001B0004CC82D /* MerchantsGuideToTheGalaxy */,
 				2B260FFD1C9001B0004CC82D /* Products */,
 			);
