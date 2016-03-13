@@ -2,9 +2,32 @@ import Foundation
 
 public class MerchantsGuideInputHandler {
   
-  let data = MerchantsGuideDictionarys()
+  public init(){
+    
+  }
   
+  public enum TypeOfUserStatement {
+    case AlienNumeralValueInput
+    case AlienGoodsValueInput
+    case AlienNumeralQuery
+    case AlienGoodsQuery
+    case InvalidUserStatement
+  }
   
+  public func evaluateUserInputString(inputString: String, romanNumerals: [String: Int]) -> TypeOfUserStatement {
+    if isAlienNumeralValue(inputString, romanNumerals: romanNumerals) {
+      return .AlienNumeralValueInput
+    } else if isAlienGoodsValue(inputString) {
+      return .AlienGoodsValueInput
+    } else if isAlienNumeralQuery(inputString) {
+      return .AlienNumeralQuery
+    } else if isAlienGoodsQuery(inputString) {
+      return .AlienGoodsQuery
+    }
+    return .InvalidUserStatement
+  }
+
+
   func isAlienNumeralValue(inputString: String, romanNumerals: [String: Int]) -> Bool {
     var isValidQuery = false
     let arrayOfRomanNumerals = [String](romanNumerals.keys)
@@ -40,15 +63,16 @@ public class MerchantsGuideInputHandler {
     return isValidQuery
   }
   
-  public func handleAlienNumeralValue(inputString: String) -> (alienNumeral: String, alienValue: Int) {
+  public func handleAlienNumeralValue(inputString: String, romanNumerals: [String: Int]) -> (alienNumeral: String, alienValue: Int) {
     let words = inputString.componentsSeparatedByString(" ")
     var alienNumeral =  String()
     var alienValue = Int()
+    
     if words.count == 3 {
       alienNumeral = words[0]
     }
     if let romanNumeral = words.last {
-      if let retrievedAlienValue = data.romanNumerals[romanNumeral] {
+      if let retrievedAlienValue = romanNumerals[romanNumeral] {
       alienValue = retrievedAlienValue
       }
     }

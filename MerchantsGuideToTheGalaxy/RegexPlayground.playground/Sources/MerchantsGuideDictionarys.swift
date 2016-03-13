@@ -9,7 +9,7 @@ public class MerchantsGuideDictionarys {
     alienGoods = [String: Int]()
   }
   
- public var romanNumerals: [String: Int]
+ public let romanNumerals: [String: Int]
  public var alienNumerals: [String: Int]
  public var alienGoods: [String: Int]
 
@@ -19,7 +19,7 @@ public class MerchantsGuideDictionarys {
     return setOfKeys
   }
   
-  public func arrayToSet(inputArray: [String]) -> Set<String> {
+func arrayToSet(inputArray: [String]) -> Set<String> {
     var outputSet = Set<String>()
     for element in inputArray {
       outputSet.insert(element)
