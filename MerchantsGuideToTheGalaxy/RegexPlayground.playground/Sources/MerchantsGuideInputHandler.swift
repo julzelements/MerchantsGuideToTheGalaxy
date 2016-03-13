@@ -14,22 +14,22 @@ public class MerchantsGuideInputHandler {
   }
   
   public enum SentenceType {
-    case AlienNumeralValueInput
-    case AlienGoodsValueInput
-    case AlienNumeralQuery
-    case AlienGoodsQuery
+    case WriteAlienNumeral
+    case WriteAlienGoods
+    case ReadAlienNumeral
+    case ReadAlienGoods
     case InvalidUserSentence
   }
   
   public func evaluateUserInputString(inputString: String, romanNumerals: [String: Int]) -> SentenceType {
     if isAlienNumeralValue(inputString, romanNumerals: romanNumerals) {
-      return .AlienNumeralValueInput
+      return .WriteAlienNumeral
     } else if isAlienGoodsValue(inputString) {
-      return .AlienGoodsValueInput
+      return .WriteAlienGoods
     } else if isAlienNumeralQuery(inputString) {
-      return .AlienNumeralQuery
+      return .ReadAlienNumeral
     } else if isAlienGoodsQuery(inputString) {
-      return .AlienGoodsQuery
+      return .ReadAlienGoods
     }
     return .InvalidUserSentence
   }
@@ -98,8 +98,12 @@ public class MerchantsGuideInputHandler {
     return nil
   }
   
-  func handleAlienNumeralQuery() {
-    
+  //This function interprets a sentence of type .AlienNumeralQuery
+  //It returns the value of the alienNumber as an Int
+  //Example IO: input: ("how much is prok glob glob", ["glob": 1, "prok": 5])
+  //           output: 7
+  func handleAlienNumeralQuery(sentence: String, alienNumeralDictionary: [String: Int]) -> Int? {
+    return nil
   }
   
   func handleAlienGoodsQuery() {

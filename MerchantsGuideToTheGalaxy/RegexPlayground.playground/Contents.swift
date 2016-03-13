@@ -3,30 +3,29 @@
 import UIKit
 import Foundation
 
-
-let merchantsDictionarys = MerchantsGuideDictionarys()
 let merchantsInputHandler = MerchantsGuideInputHandler()
 
-let romanNumerals = merchantsDictionarys.romanNumerals
-var alienNumerals = merchantsDictionarys.alienNumerals
-var alienGoods = merchantsDictionarys.alienGoods
+let romanNumerals = ["I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000]
+var alienNumerals = [String: Int]()
+var alienGoods = [String: Int]()
 
-func handleUserStatements(statements: [String], merchantDictionary: MerchantsGuideDictionarys, handler: MerchantsGuideInputHandler) {
-  let RNs = merchantDictionary.romanNumerals
+func handleUserStatements(statements: [String], handler: MerchantsGuideInputHandler) {
   for statement in statements {
-    let statementType = handler.evaluateUserInputString(statement, romanNumerals: RNs)
+    let statementType = handler.evaluateUserInputString(statement, romanNumerals: romanNumerals)
+    
     switch statementType {
-    case .AlienNumeralValueInput: print("\(statement) is Alien Numeral Value Input")
-      let newAlienNumeral = handler.getAlienNumeralFromSentence(statement, romanNumerals: RNs)
+    
+    case .WriteAlienNumeral: print("\(statement) is Alien Numeral Value Input")
+      let newAlienNumeral = handler.getAlienNumeralFromSentence(statement, romanNumerals: romanNumerals)
       alienNumerals[newAlienNumeral.alienNumeral] = newAlienNumeral.alienValue
     
-    case .AlienGoodsValueInput: print("\(statement) is Alien Goods Value Input")
+    case .WriteAlienGoods: print("\(statement) is Alien Goods Value Input")
     if let newAlienGoods = handler.getAlienGoodsFromSentence(statement, alienNumeralDictionary: alienNumerals) {
       alienGoods[newAlienGoods.alienGoods] = newAlienGoods.alienGoodsValue
       }
     
-    case .AlienNumeralQuery: print("\(statement) is Alien Numeral Query")
-    case .AlienGoodsQuery: print("\(statement) is Alien Goods Query")
+    case .ReadAlienNumeral: print("\(statement) is Alien Numeral Query")
+    case .ReadAlienGoods: print("\(statement) is Alien Goods Query")
     case .InvalidUserSentence: print("\(statement) is invalid user sentence")
     }
     
@@ -48,7 +47,7 @@ let testAlienDictionary = ["glob": 1, "prok": 5, "pish": 10, "tegj": 50]
 merchantsInputHandler.getAlienNumeralsFromSentence(testInputC, alienNumeralDictionary: testAlienDictionary)
 merchantsInputHandler.getIntegerFromSentence(testInputB)
 
-handleUserStatements([testInputA, testInputB, testInputC, testInputD, testInputE], merchantDictionary: merchantsDictionarys, handler: merchantsInputHandler)
+handleUserStatements([testInputA, testInputB, testInputC, testInputD, testInputE], handler: merchantsInputHandler)
 
 print(alienNumerals)
 print(alienGoods)
