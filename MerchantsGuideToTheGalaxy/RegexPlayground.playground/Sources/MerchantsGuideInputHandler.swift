@@ -2,6 +2,13 @@ import Foundation
 
 public class MerchantsGuideInputHandler {
   
+  //Variable Naming conventions:
+  //"prok" - alienNumeral
+  //"prok glob glob" - alienNumber
+  //if "prok" is assigned a value of 5, alienNumeralValue = 5
+  //if "glob" is assigned a value of 1, alienNumeralValue = 1
+  
+  
   public init(){
     
   }
@@ -26,7 +33,7 @@ public class MerchantsGuideInputHandler {
     }
     return .InvalidUserSentence
   }
-
+  
   func isAlienNumeralValue(inputString: String, romanNumerals: [String: Int]) -> Bool {
     var isValidQuery = false
     let arrayOfRomanNumerals = [String](romanNumerals.keys)
@@ -72,19 +79,23 @@ public class MerchantsGuideInputHandler {
     }
     if let romanNumeral = words.last {
       if let retrievedAlienValue = romanNumerals[romanNumeral] {
-      alienValue = retrievedAlienValue
+        alienValue = retrievedAlienValue
       }
     }
     return (alienNumeral, alienValue)
   }
   
-  //This function parses a sentence of type .AlienGoodsValueInput
-  //This sentence type has the form: "glob glob Silver is 34 Credits"
-  //
-  func retrieveAlienGoodsValue(sentence: String, alienNumeralDictionary: [String: Int])-> (alienGood: String, alienGoodValue: Int) {
-    let alienNumeralPrice = getAlienNumeralsFromSentence(sentence, alienNumeralDictionary: alienNumeralDictionary)
-    //TODO:
-
+  //This function interprets a sentence of type .AlienGoodsValueInput
+  //It returns a tuple: (alienGoods, alienGoodsValue)
+  //Example IO: input: ("glob glob Silver is 34 Credits", ["glob": 1, "prok": 5])
+  //           output: ("Silver", 34)
+  public func getAlienGoodsFromSentence(sentence: String, alienNumeralDictionary: [String: Int])-> (alienGoods: String, alienGoodsValue: Int)? {
+    let alienNumber = getAlienNumeralsFromSentence(sentence, alienNumeralDictionary: alienNumeralDictionary)
+    let alienGoodsValue = getAlienNumberValue(alienNumber, alienNumeralDictionary: alienNumeralDictionary)
+    if let alienGoods = getAlienGoodsFromSentence(sentence) {
+      return (alienGoods, alienGoodsValue)
+    }
+    return nil
   }
   
   func handleAlienNumeralQuery() {
@@ -96,6 +107,8 @@ public class MerchantsGuideInputHandler {
   }
   //This function scans an input sentence for alien Numerals that exist as keys in the alienNumeralDictionary
   //It returns any found numerals ordered in an array
+  //Example IO: input: "glob glob silver is 34 Credits"
+  //           output: ["glob", "glob"]
   public func getAlienNumeralsFromSentence(sentence: String, alienNumeralDictionary: [String: Int])-> [String] {
     let words = sentence.componentsSeparatedByString(" ")
     let alienNumeralKeys = [String](alienNumeralDictionary.keys)
@@ -109,7 +122,7 @@ public class MerchantsGuideInputHandler {
   }
   
   //This function scans an input sentence for any word that can be cast to an Int.
-  //Assumption: Only one or less possible Ints exist in the sentence
+  //It returns the first Int found, or nil if no Int is found
   public func getIntegerFromSentence(sentence: String) -> Int? {
     let words = sentence.componentsSeparatedByString(" ")
     for word in words {
@@ -120,12 +133,13 @@ public class MerchantsGuideInputHandler {
     return nil
   }
   
-  //This function reads an array of Alien Numerals a dictionary and returns the value
+  //This function reads an alienNumber and an associated alienNumeralDictionary
+  //It returns alienNumber interpreted with the alienNumeralDictionary as a Roman Numeral
   //Example IO: input: (["prok", "glob", "glob"], ["glob": 1, "prok": 5])
   //            output: 7
-  public func getAlienCompoundNumeralValue(alienNumerals: [String], alienNumeralDictionary: [String: Int]) -> Int {
+  public func getAlienNumberValue(alienNumber: [String], alienNumeralDictionary: [String: Int]) -> Int {
     var alienValues = [Int]()
-    for numeral in alienNumerals {
+    for numeral in alienNumber {
       if let alienValue = alienNumeralDictionary[numeral] {
         alienValues.append(alienValue)
       }
@@ -151,7 +165,19 @@ public class MerchantsGuideInputHandler {
     return total
   }
   
-  
+  //This function reads a sentence of type: .AlienGoodsValueInput
+  //It identifies and returns the alienGoods
+  //Example IO: input: "glob glob Silver is 34 Credits"
+  //           output: "Silver"
+  func getAlienGoodsFromSentence(sentence: String) -> String? {
+    let words = sentence.componentsSeparatedByString(" ")
+    if words.contains("is") {
+      if let indexOfTheWordIs = words.indexOf("is") {
+        return words[indexOfTheWordIs - 1]
+      }
+    }
+    return nil
+  }
   
   
 }
@@ -161,12 +187,12 @@ public class MerchantsGuideInputHandler {
 
 
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+

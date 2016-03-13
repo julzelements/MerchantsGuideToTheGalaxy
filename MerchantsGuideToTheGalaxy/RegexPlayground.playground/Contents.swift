@@ -20,9 +20,12 @@ func handleUserStatements(statements: [String], merchantDictionary: MerchantsGui
       let newAlienNumeral = handler.retrieveAlienNumeralValue(statement, romanNumerals: RNs)
       alienNumerals[newAlienNumeral.alienNumeral] = newAlienNumeral.alienValue
     case .AlienGoodsValueInput: print("\(statement) is Alien Goods Value Input")
+    if let newAlienGoods = handler.getAlienGoodsFromSentence(statement, alienNumeralDictionary: alienNumerals) {
+      alienGoods[newAlienGoods.alienGoods] = newAlienGoods.alienGoodsValue
+      }
     case .AlienNumeralQuery: print("\(statement) is Alien Numeral Query")
     case .AlienGoodsQuery: print("\(statement) is Alien Goods Query")
-    case .InvalidUserStatement: print("\(statement) is invalid user input")
+    case .InvalidUserSentence: print("\(statement) is invalid user sentence")
     }
     
   }
@@ -46,7 +49,7 @@ merchantsInputHandler.getIntegerFromSentence(testInputB)
 handleUserStatements([testInputA, testInputB, testInputC, testInputD, testInputE], merchantDictionary: merchantsDictionarys, handler: merchantsInputHandler)
 
 print(alienNumerals)
-
+print(alienGoods)
 
 
 
