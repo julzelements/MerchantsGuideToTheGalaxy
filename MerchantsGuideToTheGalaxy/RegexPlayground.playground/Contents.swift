@@ -14,21 +14,27 @@ func handleUserStatements(statements: [String], handler: MerchantsGuideInputHand
     let statementType = handler.evaluateUserInputString(statement, romanNumerals: romanNumerals)
     
     switch statementType {
-    
+      
     case .WriteAlienNumeral: print("\(statement) is Alien Numeral Value Input")
-      let newAlienNumeral = handler.getAlienNumeralFromSentence(statement, romanNumerals: romanNumerals)
-      alienNumerals[newAlienNumeral.alienNumeral] = newAlienNumeral.alienValue
-    
+    let newAlienNumeral = handler.getAlienNumeralFromWriteAlienNumeralSentence(statement, romanNumerals: romanNumerals)
+    alienNumerals[newAlienNumeral.alienNumeral] = newAlienNumeral.alienValue
+      
     case .WriteAlienGoods: print("\(statement) is Alien Goods Value Input")
     if let newAlienGoods = handler.getAlienGoodsFromSentence(statement, alienNumeralDictionary: alienNumerals) {
       alienGoods[newAlienGoods.alienGoods] = newAlienGoods.alienGoodsValue
+    } else {
+      print("errorWriteAlienGoods")
       }
-    
-    case .ReadAlienNumeral: print("\(statement) is Alien Numeral Query")
+      
+    case .ReadAlienNumber: print("\(statement) is Alien Numeral Query")
+    if let alienNumber = handler.getAlienNumberValueFromSentence(statement, alienNumeralDictionary: alienNumerals) {
+      print("\(alienNumber.description) is \(alienNumber.value)")
+    } else {
+      print("error ReadAlienNumber")
+      }
     case .ReadAlienGoods: print("\(statement) is Alien Goods Query")
     case .InvalidUserSentence: print("\(statement) is invalid user sentence")
     }
-    
   }
 }
 
@@ -36,29 +42,17 @@ func handleUserStatements(statements: [String], handler: MerchantsGuideInputHand
 
 
 //tests.
-let testInputA = "glob is I"
-let testInputB = "glob glob silver is 34 Credits"
-let testInputC = "how much is pish tegj glob glob ?"
-let testInputD = "how many Credits is glob prok Silver ?"
-let testInputE = "how much wood could a woodchuck chuck if a woodchuck could chuck wood?"
+
+
+
+let testInput = "glob is I\nprok is V\npish is X\ntegj is L\nglob glob Silver is 34 Credits\nglob prok Gold is 57800 Credits\npish pish Iron is 3910 Credits\nhow much is pish tegj glob glob ?\nhow many Credits is glob prok Silver ?\nhow many Credits is glob prok Gold ?\nhow many Credits is glob prok Iron ?\nhow much wood could a woodchuck chuck if a woodchuck could chuck wood ?"
+
+let testArray = testInput.componentsSeparatedByString("\n")
 
 let testAlienDictionary = ["glob": 1, "prok": 5, "pish": 10, "tegj": 50]
 
-merchantsInputHandler.getAlienNumeralsFromSentence(testInputC, alienNumeralDictionary: testAlienDictionary)
-merchantsInputHandler.getIntegerFromSentence(testInputB)
 
-handleUserStatements([testInputA, testInputB, testInputC, testInputD, testInputE], handler: merchantsInputHandler)
-
+handleUserStatements(testArray, handler: merchantsInputHandler)
 print(alienNumerals)
 print(alienGoods)
 
-
-
-
-
-
-merchantsInputHandler.evaluateUserInputString(testInputA, romanNumerals: romanNumerals)
-merchantsInputHandler.evaluateUserInputString(testInputB, romanNumerals: romanNumerals)
-merchantsInputHandler.evaluateUserInputString(testInputC, romanNumerals: romanNumerals)
-merchantsInputHandler.evaluateUserInputString(testInputD, romanNumerals: romanNumerals)
-merchantsInputHandler.evaluateUserInputString(testInputE, romanNumerals: romanNumerals)
