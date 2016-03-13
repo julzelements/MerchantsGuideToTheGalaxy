@@ -107,10 +107,12 @@ public class MerchantsGuideInputHandler {
   //Example IO: input: ("how much is prok glob glob", ["glob": 1, "prok": 5])
   //           output: ("prok glob glob", 7)
   public func getAlienNumberValueFromSentence(sentence: String, alienNumeralDictionary: [String: Int]) -> (description: String, value: Int)? {
-    let words = sentence.componentsSeparatedByString(" ")
-    if let alienNumberValue = getAlienNumberValue(words, alienNumeralDictionary: alienNumeralDictionary) {
-      if let alienNumeralArray = getAlienNumeralsFromSentence(sentence, alienNumeralDictionary: alienNumeralDictionary){
-        return (alienNumeralArray.joinWithSeparator(" "), alienNumberValue)
+    
+    if let alienNumerals = getAlienNumeralsFromSentence(sentence, alienNumeralDictionary: alienNumeralDictionary) {
+      if let alienNumberValue = getAlienNumberValue(alienNumerals, alienNumeralDictionary: alienNumeralDictionary) {
+        if let alienNumeralArray = getAlienNumeralsFromSentence(sentence, alienNumeralDictionary: alienNumeralDictionary){
+          return (alienNumeralArray.joinWithSeparator(" "), alienNumberValue)
+        }
       }
     }
     return nil
@@ -168,6 +170,7 @@ public class MerchantsGuideInputHandler {
   //            output: 7
   public func getAlienNumberValue(alienNumber: [String], alienNumeralDictionary: [String: Int]) -> Int? {
     var alienValues = [Int]()
+    print(alienNumber.description)
     for numeral in alienNumber {
       if let alienValue = alienNumeralDictionary[numeral] {
         alienValues.append(alienValue)

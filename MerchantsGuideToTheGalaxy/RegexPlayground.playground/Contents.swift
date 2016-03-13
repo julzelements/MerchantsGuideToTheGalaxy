@@ -26,7 +26,7 @@ func handleUserStatements(statements: [String], handler: MerchantsGuideInputHand
       print("errorWriteAlienGoods")
       }
       
-    case .ReadAlienNumber: print("\(statement) is Alien Numeral Query")
+    case .ReadAlienNumber: print("\(statement) is Alien Number Query")
     if let alienNumber = handler.getAlienNumberValueFromSentence(statement, alienNumeralDictionary: alienNumerals) {
       print("\(alienNumber.description) is \(alienNumber.value)")
     } else {
@@ -37,7 +37,6 @@ func handleUserStatements(statements: [String], handler: MerchantsGuideInputHand
     }
   }
 }
-
 
 
 
