@@ -20,7 +20,7 @@ func handleUserStatements(statements: [String], handler: MerchantsGuideInputHand
     alienNumerals[newAlienNumeral.alienNumeral] = newAlienNumeral.alienValue
       
     case .WriteAlienGoods: print("\(statement) is Alien Goods Value Input")
-    if let newAlienGoods = handler.getAlienGoodsFromSentence(statement, alienNumeralDictionary: alienNumerals) {
+    if let newAlienGoods = handler.getAlienGoodsAndValueFromSentence(statement, alienNumeralDictionary: alienNumerals) {
       alienGoods[newAlienGoods.alienGoods] = newAlienGoods.alienGoodsValue
     } else {
       print("errorWriteAlienGoods")

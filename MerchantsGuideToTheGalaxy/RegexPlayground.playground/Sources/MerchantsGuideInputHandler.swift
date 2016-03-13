@@ -90,10 +90,10 @@ public class MerchantsGuideInputHandler {
   //
   //Example IO: input: ("glob glob Silver is 34 Credits", ["glob": 1, "prok": 5])
   //           output: ("Silver", 34)
-  public func getAlienGoodsFromSentence(sentence: String, alienNumeralDictionary: [String: Int])-> (alienGoods: String, alienGoodsValue: Int)? {
+  public func getAlienGoodsAndValueFromSentence(sentence: String, alienNumeralDictionary: [String: Int])-> (alienGoods: String, alienGoodsValue: Int)? {
     if let alienNumber = getAlienNumeralsFromSentence(sentence, alienNumeralDictionary: alienNumeralDictionary) {
       if let alienGoodsValue = getAlienNumberValue(alienNumber, alienNumeralDictionary: alienNumeralDictionary) {
-        if let alienGoods = getAlienGoodsFromSentence(sentence) {
+        if let alienGoods = getAlienGoodsFromAlienGoodsQuery(sentence) {
           return (alienGoods, alienGoodsValue)
         }
       }
@@ -121,12 +121,20 @@ public class MerchantsGuideInputHandler {
   
   
   
-  
-  func handleAlienGoodsQuery() {
-    
-  }
-  
-  
+//  //This function interprets a sentence of type .AlienGoodsQuery
+//  //It returns a tuple containing: value of Goods (Int), alienNumber (String), alienGoods (String)
+//  //
+//  //Example IO: input: ("how many Credits is glob prok Iron", ["glob": 1, "prok": 5], ["Iron": 20])
+//  //           output: (782, "glob prok", "Iron")
+//  func handleAlienGoodsQuery(sentence: String, alienNumeralDictionary: [String: Int], alienGoodsDictionary: [String: Int]) {
+//    if let alienNumerals = getAlienNumeralsFromSentence(sentence, alienNumeralDictionary: alienNumeralDictionary) {
+//      if let goodsQuantity = getAlienNumberValue(alienNumerals, alienNumeralDictionary: alienNumeralDictionary) {
+//         if let goods = getAlienGoodsFromSentence(sentence, alienNumeralDictionary: <#T##[String : Int]#>)
+//      }
+//    }
+//  }
+//}
+
   
   
   
@@ -205,7 +213,7 @@ public class MerchantsGuideInputHandler {
   //
   //Example IO: input: "glob glob Silver is 34 Credits"
   //           output: "Silver"
-  func getAlienGoodsFromSentence(sentence: String) -> String? {
+  func getAlienGoodsFromAlienGoodsQuery(sentence: String) -> String? {
     let words = sentence.componentsSeparatedByString(" ")
     if words.contains("is") {
       if let indexOfTheWordIs = words.indexOf("is") {
