@@ -17,12 +17,14 @@ func handleUserStatements(statements: [String], merchantDictionary: MerchantsGui
     let statementType = handler.evaluateUserInputString(statement, romanNumerals: RNs)
     switch statementType {
     case .AlienNumeralValueInput: print("\(statement) is Alien Numeral Value Input")
-      let newAlienNumeral = handler.retrieveAlienNumeralValue(statement, romanNumerals: RNs)
+      let newAlienNumeral = handler.getAlienNumeralFromSentence(statement, romanNumerals: RNs)
       alienNumerals[newAlienNumeral.alienNumeral] = newAlienNumeral.alienValue
+    
     case .AlienGoodsValueInput: print("\(statement) is Alien Goods Value Input")
     if let newAlienGoods = handler.getAlienGoodsFromSentence(statement, alienNumeralDictionary: alienNumerals) {
       alienGoods[newAlienGoods.alienGoods] = newAlienGoods.alienGoodsValue
       }
+    
     case .AlienNumeralQuery: print("\(statement) is Alien Numeral Query")
     case .AlienGoodsQuery: print("\(statement) is Alien Goods Query")
     case .InvalidUserSentence: print("\(statement) is invalid user sentence")

@@ -69,7 +69,7 @@ public class MerchantsGuideInputHandler {
     return isValidQuery
   }
   
-  public func retrieveAlienNumeralValue(inputString: String, romanNumerals: [String: Int]) -> (alienNumeral: String, alienValue: Int) {
+  public func getAlienNumeralFromSentence(inputString: String, romanNumerals: [String: Int]) -> (alienNumeral: String, alienValue: Int) {
     let words = inputString.componentsSeparatedByString(" ")
     var alienNumeral =  String()
     var alienValue = Int()
