@@ -33,6 +33,7 @@
 		2B706CDD1C963883009E686D /* errorHandling.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = errorHandling.playground; sourceTree = "<group>"; };
 		2B706CE11C964622009E686D /* AlienNumerals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AlienNumerals.playground; sourceTree = "<group>"; };
 		2B706CE21C9654EB009E686D /* AlienNumerals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlienNumerals.swift; sourceTree = "<group>"; };
+		2B706CE61C965662009E686D /* AlienGoods.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AlienGoods.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				2B706CE11C964622009E686D /* AlienNumerals.playground */,
+				2B706CE61C965662009E686D /* AlienGoods.playground */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
