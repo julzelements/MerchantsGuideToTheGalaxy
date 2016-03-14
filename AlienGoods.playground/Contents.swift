@@ -43,7 +43,7 @@ class AlienNumerals {
   //
   //Example IO: input: "how much is pish tegj glob glob"
   //            output: (42.0, ["pish", "tegj", "glob", "glob"])
-  func parseQuery(query: String) -> (value: Double, alienDescription: String)? {
+  func parseQuery(query: String) -> (value: Double, numerals: String)? {
     if let numerals = getArrayOfAlienNumerals(query) {
       if let value = readNumber(numerals) {
         let numeralsDescription = numerals.joinWithSeparator(" ")
@@ -165,15 +165,13 @@ class AlienGoods {
       goodsDictionary[goods] = (credits / goodsValue)
     }
   }
-  
-  
-  
+
   //This function interprets a sentence of type .AlienGoodsQuery
   //It returns a tuple containing: alienNumber (String), alienGoods (String), value of Goods (Double)
   //
   //Example IO: input: ("how many Credits is glob prok Iron", ["glob": 1, "prok": 5], ["Iron": 20])
   //           output: ("glob prok", "Iron", 782)
-  func parseQuery(query: String) -> (quantity: String, alienGood: String, price: Double) {
+  func parseQuery(query: String) -> (quantity: String, numerals: String, price: Double) {
     var descriptiveQuantity = String()
     var goods = String()
     var price = Double()
@@ -202,10 +200,12 @@ class AlienGoods {
 class InputHandler {
   var numerals: AlienNumerals
   var goods: AlienGoods
+  var parsedOutput: [String]
   
   init(numeralDictionary: AlienNumerals, goodsDictionary: AlienGoods) {
     self.goods = goodsDictionary
     self.numerals = numeralDictionary
+    self.parsedOutput = [String]()
   }
   
   
@@ -217,18 +217,23 @@ class InputHandler {
       goods.parseStatement(inputString)
       
     } else if isNumberQuery(inputString) {
-      if let number = (numerals.parseQuery(inputString)) {
-        print("\(number.alienDescription) is \(truncateTrailingZeros(number.value))")
+      if let query = (numerals.parseQuery(inputString)) {
+      let outputString = "\(query.numerals) is \(removeZeros(query.value))"
+      parsedOutput.append(outputString)
+//      print("\(query.numerals) is \(removeZeros(query.value))")
       }
       
     } else if isGoodsQuery(inputString) {
-      print(goods.parseQuery(inputString))
+      let query = (goods.parseQuery(inputString))
+      let outputString = "\(query.quantity) \(query.numerals) is \(removeZeros(query.price)) Credits"
+      parsedOutput.append(outputString)
+//      print("\(query.quantity) \(query.numerals) is \(removeZeros(query.price)) Credits")
     
     }
     return "error"
   }
   
-  func truncateTrailingZeros(number: Double) -> String {
+  private func removeZeros(number: Double) -> String {
     if number % 1 == 0 {
       return String(Int(number))
     }
@@ -280,28 +285,36 @@ let testArray = testInput.componentsSeparatedByString("\n")
 
 let testAlienNumerals = AlienNumerals()
 //fill AlienNumerals
-for statement in testArray {
-  testAlienNumerals.parseStatement(statement)
-}
+//for statement in testArray {
+//  testAlienNumerals.parseStatement(statement)
+//}
 
 //Initialize Goods
 let testGoodsDictionary = AlienGoods(alienNumerals: testAlienNumerals)
+//print(testGoodsDictionary.goodsDictionary)
+
+//for statement in testArray {
+//  testGoodsDictionary.parseStatement(statement)
+//}
 
 
-for statement in testArray {
-  testGoodsDictionary.parseStatement(statement)
-  let query = testGoodsDictionary.parseQuery(statement)
-//  print("\(query.quantity) \(query.alienGood) is \(query.price) Credits")
-}
-
-print(testGoodsDictionary.goodsDictionary)
 
 //Initialize handler
   let testHandler = InputHandler(numeralDictionary: testAlienNumerals, goodsDictionary: testGoodsDictionary)
   for statement in testArray {
     testHandler.evaluateUserInputString(statement)
   }
-
+  let testOutputString = testHandler.parsedOutput.joinWithSeparator("\n")
+  print(testOutputString)
 }
 
 runTest()
+
+//let testAlienNumerals = AlienNumerals()
+//let testGoodsDictionary = AlienGoods(alienNumerals: testAlienNumerals)
+//let testHandler = InputHandler(numeralDictionary: testAlienNumerals, goodsDictionary: testGoodsDictionary)
+//for statement in testArray {
+//  testHandler.evaluateUserInputString(statement)
+//}
+//let testOutputString = testHandler.parsedOutput.joinWithSeparator("\n")
+//print(testOutputString)
