@@ -10,8 +10,8 @@ import Foundation
 
 class AlienNumerals {
   
-  private let romanNumerals = ["I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000]
-  private var alienDictionary = [String: Int]()
+  let romanNumerals:[String: Double] = ["I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000]
+  private var alienDictionary = [String: Double]()
   
   var knownNumerals : [String] {
     return Array(alienDictionary.keys)
@@ -25,7 +25,7 @@ class AlienNumerals {
   func parseStatement(statement: String) {
     let words = statement.componentsSeparatedByString(" ")
     var newNumeral =  String()
-    var newValue = Int()
+    var newValue = Double()
     
     guard words.count == 3 else {
       print("error: word count of alienNumeralAssignment statement != 3")
@@ -43,14 +43,30 @@ class AlienNumerals {
     alienDictionary[newNumeral] = newValue
   }
   
+  //This function parses a statement of type .AlienNumberQuery
+  //It calculate the value of the AlienNumber using the alienDictionary in this class
+  //It returns an optional tuple containing: (value: Double, array of the AlienNumber: [String]
+  //
+  //Example IO: input: "how much is pish tegj glob glob"
+  //            output: (42.0, ["pish", "tegj", "glob", "glob"])
+  func parseQuery(query: String) -> (value: Double, numerals: String)? {
+    if let numerals = getArrayOfAlienNumerals(query) {
+      if let value = readNumber(numerals) {
+        let numeralsDescription = numerals.joinWithSeparator(" ")
+        return (value, numeralsDescription)
+      }
+    }
+    return nil
+  }
+  
   
   //This function reads an alienNumber and an associated alienNumeralDictionary
   //It returns alienNumber interpreted with the alienNumeralDictionary as a Roman Numeral
   //
   //Example IO: input: (["prok", "glob", "glob"], ["glob": 1, "prok": 5])
   //            output: 7
-  func readNumber(alienNumber: [String]) -> Int? {
-    var alienValues = [Int]()
+  func readNumber(alienNumber: [String]) -> Double? {
+    var alienValues = [Double]()
     for numeral in alienNumber {
       if let alienValue = alienDictionary[numeral] {
         alienValues.append(alienValue)
@@ -58,14 +74,14 @@ class AlienNumerals {
         return nil
       }
     }
-    return calculateRomanNumeral(romanNumeralInts: alienValues)
+    return calculateRomanNumeral(romanNumeralValues: alienValues)
   }
   
-  //This function reads an array of integers as a roman numeral
-  //Example IO: input:[10, 1, 5]
+  //This function reads an array of Doubles as a roman numeral
+  //Example IO: input:[10.0, 1.0, 5.0]
   //           output: 14
-  private func calculateRomanNumeral(romanNumeralInts numerals: [Int]) -> Int {
-    var total = Int()
+  private func calculateRomanNumeral(romanNumeralValues numerals: [Double]) -> Double {
+    var total = Double()
     let reversed = Array(numerals.reverse())
     
     total += reversed[0]
@@ -80,5 +96,28 @@ class AlienNumerals {
     return total
   }
   
+  //This function scans an input statement for alienNumerals(keys) in the alienNumeralDictionary
+  //It returns any found numerals ordered in an array or nil if no alienNumerals are found
+  //
+  //Example IO: input: "glob glob silver is 34 Credits"
+  //           output: ["glob", "glob"]
+  func getArrayOfAlienNumerals(sentence: String)-> [String]? {
+    var alienNumerals = [String]()
+    
+    
+    let words = sentence.componentsSeparatedByString(" ")
+    
+    for word in words {
+      if knownNumerals.contains(word) {
+        alienNumerals.append(word)
+      }
+    }
+    
+    if alienNumerals.isEmpty {
+      return nil
+    } else {
+      return alienNumerals
+    }
+  }
+  
 }
-

@@ -117,7 +117,6 @@ class AlienNumerals {
 }
 
 
-
 class AlienGoods {
   var numeralsDictionary: AlienNumerals
   var goodsDictionary = [String: Double]()

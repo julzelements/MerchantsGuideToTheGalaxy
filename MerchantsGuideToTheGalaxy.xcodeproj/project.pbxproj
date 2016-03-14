@@ -13,19 +13,21 @@
 		2B2610071C9001B0004CC82D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B2610061C9001B0004CC82D /* Assets.xcassets */; };
 		2B26100A1C9001B0004CC82D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2610081C9001B0004CC82D /* LaunchScreen.storyboard */; };
 		2B706CE31C9654EB009E686D /* AlienNumerals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B706CE21C9654EB009E686D /* AlienNumerals.swift */; };
+		2B706CEC1C96F040009E686D /* InputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B706CEB1C96F040009E686D /* InputHandler.swift */; };
+		2B706CF01C96F13F009E686D /* AlienGoods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B706CEF1C96F13F009E686D /* AlienGoods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B260FFC1C9001B0004CC82D /* MerchantsGuideToTheGalaxy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MerchantsGuideToTheGalaxy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B260FFF1C9001B0004CC82D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2B260FFF1C9001B0004CC82D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = MerchantsGuideToTheGalaxy/AppDelegate.swift; sourceTree = "<group>"; };
 		2B2610011C9001B0004CC82D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2B2610041C9001B0004CC82D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2B2610061C9001B0004CC82D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2B2610061C9001B0004CC82D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = MerchantsGuideToTheGalaxy/Assets.xcassets; sourceTree = "<group>"; };
 		2B2610091C9001B0004CC82D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2B26100B1C9001B0004CC82D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2B706CA71C92C85B009E686D /* RomanNumerals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RomanNumerals.playground; sourceTree = "<group>"; };
-		2B706CA81C93DB34009E686D /* RegexPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RegexPlayground.playground; sourceTree = "<group>"; };
-		2B706CA91C94E19B009E686D /* Archived.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Archived.playground; sourceTree = "<group>"; };
+		2B26100B1C9001B0004CC82D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = MerchantsGuideToTheGalaxy/Info.plist; sourceTree = "<group>"; };
+		2B706CA71C92C85B009E686D /* RomanNumerals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = RomanNumerals.playground; path = MerchantsGuideToTheGalaxy/RomanNumerals.playground; sourceTree = "<group>"; };
+		2B706CA81C93DB34009E686D /* RegexPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = RegexPlayground.playground; path = MerchantsGuideToTheGalaxy/RegexPlayground.playground; sourceTree = "<group>"; };
+		2B706CA91C94E19B009E686D /* Archived.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Archived.playground; path = MerchantsGuideToTheGalaxy/Archived.playground; sourceTree = "<group>"; };
 		2B706CD61C952B3C009E686D /* CastingStrings.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CastingStrings.playground; sourceTree = "<group>"; };
 		2B706CD71C952FB7009E686D /* intepretingAlienNumerals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = intepretingAlienNumerals.playground; sourceTree = "<group>"; };
 		2B706CD81C95559B009E686D /* IdentifyAlienGoods.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = IdentifyAlienGoods.playground; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		2B706CE61C965662009E686D /* AlienGoods.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AlienGoods.playground; sourceTree = "<group>"; };
 		2B706CE71C967995009E686D /* SentenceHandler.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SentenceHandler.playground; sourceTree = "<group>"; };
 		2B706CE81C967D6E009E686D /* WriteAlienNumeral.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WriteAlienNumeral.playground; sourceTree = "<group>"; };
+		2B706CEB1C96F040009E686D /* InputHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputHandler.swift; sourceTree = "<group>"; };
+		2B706CEF1C96F13F009E686D /* AlienGoods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlienGoods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +56,9 @@
 		2B260FF31C9001AF004CC82D = {
 			isa = PBXGroup;
 			children = (
+				2B706CEE1C96F0AA009E686D /* SupportingFiles */,
+				2B706CED1C96F053009E686D /* Obselete */,
 				2B706CE01C964603009E686D /* Classes */,
-				2B706CDE1C9645EA009E686D /* Tests */,
 				2B260FFE1C9001B0004CC82D /* MerchantsGuideToTheGalaxy */,
 				2B260FFD1C9001B0004CC82D /* Products */,
 			);
@@ -70,16 +75,11 @@
 		2B260FFE1C9001B0004CC82D /* MerchantsGuideToTheGalaxy */ = {
 			isa = PBXGroup;
 			children = (
-				2B260FFF1C9001B0004CC82D /* AppDelegate.swift */,
 				2B2610011C9001B0004CC82D /* ViewController.swift */,
 				2B706CE21C9654EB009E686D /* AlienNumerals.swift */,
 				2B2610031C9001B0004CC82D /* Main.storyboard */,
-				2B2610061C9001B0004CC82D /* Assets.xcassets */,
-				2B2610081C9001B0004CC82D /* LaunchScreen.storyboard */,
-				2B26100B1C9001B0004CC82D /* Info.plist */,
-				2B706CA71C92C85B009E686D /* RomanNumerals.playground */,
-				2B706CA81C93DB34009E686D /* RegexPlayground.playground */,
-				2B706CA91C94E19B009E686D /* Archived.playground */,
+				2B706CEB1C96F040009E686D /* InputHandler.swift */,
+				2B706CEF1C96F13F009E686D /* AlienGoods.swift */,
 			);
 			path = MerchantsGuideToTheGalaxy;
 			sourceTree = "<group>";
@@ -99,12 +99,34 @@
 		2B706CE01C964603009E686D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2B706CE11C964622009E686D /* AlienNumerals.playground */,
 				2B706CE61C965662009E686D /* AlienGoods.playground */,
-				2B706CE71C967995009E686D /* SentenceHandler.playground */,
-				2B706CE81C967D6E009E686D /* WriteAlienNumeral.playground */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		2B706CED1C96F053009E686D /* Obselete */ = {
+			isa = PBXGroup;
+			children = (
+				2B706CDE1C9645EA009E686D /* Tests */,
+				2B706CE11C964622009E686D /* AlienNumerals.playground */,
+				2B706CE71C967995009E686D /* SentenceHandler.playground */,
+				2B706CE81C967D6E009E686D /* WriteAlienNumeral.playground */,
+				2B706CA71C92C85B009E686D /* RomanNumerals.playground */,
+				2B706CA81C93DB34009E686D /* RegexPlayground.playground */,
+				2B706CA91C94E19B009E686D /* Archived.playground */,
+			);
+			name = Obselete;
+			sourceTree = "<group>";
+		};
+		2B706CEE1C96F0AA009E686D /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2B260FFF1C9001B0004CC82D /* AppDelegate.swift */,
+				2B2610061C9001B0004CC82D /* Assets.xcassets */,
+				2B2610081C9001B0004CC82D /* LaunchScreen.storyboard */,
+				2B26100B1C9001B0004CC82D /* Info.plist */,
+			);
+			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +204,8 @@
 				2B2610021C9001B0004CC82D /* ViewController.swift in Sources */,
 				2B706CE31C9654EB009E686D /* AlienNumerals.swift in Sources */,
 				2B2610001C9001B0004CC82D /* AppDelegate.swift in Sources */,
+				2B706CEC1C96F040009E686D /* InputHandler.swift in Sources */,
+				2B706CF01C96F13F009E686D /* AlienGoods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +226,7 @@
 				2B2610091C9001B0004CC82D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = MerchantsGuideToTheGalaxy;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
