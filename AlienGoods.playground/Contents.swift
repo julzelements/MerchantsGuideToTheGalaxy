@@ -43,11 +43,11 @@ class AlienNumerals {
   //
   //Example IO: input: "how much is pish tegj glob glob"
   //            output: (42.0, ["pish", "tegj", "glob", "glob"])
-  func parseQuery(statement: String) -> (value: Double, alienDescription: String)? {
-    if let numerals = getArrayOfAlienNumerals(statement) {
+  func parseQuery(query: String) -> (value: Double, alienDescription: String)? {
+    if let numerals = getArrayOfAlienNumerals(query) {
       if let value = readNumber(numerals) {
-        let numeralsAsString = numerals.joinWithSeparator(" ")
-        return (value, numeralsAsString)
+        let numeralsDescription = numerals.joinWithSeparator(" ")
+        return (value, numeralsDescription)
       }
     }
     return nil
@@ -119,11 +119,11 @@ class AlienNumerals {
 
 
 class AlienGoods {
-  var alienNumeralsDictionary: AlienNumerals
+  var numeralsDictionary: AlienNumerals
   var goodsDictionary = [String: Double]()
   
   init(alienNumerals: AlienNumerals) {
-    self.alienNumeralsDictionary = alienNumerals
+    self.numeralsDictionary = alienNumerals
   }
   
   var knownGoods : [String] {
@@ -139,7 +139,7 @@ class AlienGoods {
     let words = statement.componentsSeparatedByString(" ")
     var credits = Double()
     var goodsValue = Double()
-    var alienGood = String()
+    var goods = String()
 
     //Search statement for Double
     for word in words {
@@ -151,18 +151,18 @@ class AlienGoods {
     //AlienGood is on LHS of word "is"
     if words.contains("is") {
       if let indexOfTheWordIs = words.indexOf("is") {
-        alienGood = words[indexOfTheWordIs - 1]
+        goods = words[indexOfTheWordIs - 1]
       }
     }
 
     //Create array of all the alienNumerals in the statement
-    if let alienNumber = alienNumeralsDictionary.getArrayOfAlienNumerals(statement) {
-      goodsValue = alienNumeralsDictionary.readNumber(alienNumber)!
+    if let alienNumber = numeralsDictionary.getArrayOfAlienNumerals(statement) {
+      goodsValue = numeralsDictionary.readNumber(alienNumber)!
     }
 
 //    Write the calculated goods value to the goodsDictionary
     if credits != 0 {
-      goodsDictionary[alienGood] = (credits / goodsValue)
+      goodsDictionary[goods] = (credits / goodsValue)
     }
   }
   
@@ -174,55 +174,55 @@ class AlienGoods {
   //Example IO: input: ("how many Credits is glob prok Iron", ["glob": 1, "prok": 5], ["Iron": 20])
   //           output: ("glob prok", "Iron", 782)
   func parseQuery(query: String) -> (quantity: String, alienGood: String, price: Double) {
-    var quantityInAlien = String()
-    var alienGood = String()
+    var descriptiveQuantity = String()
+    var goods = String()
     var price = Double()
     
     let words = query.componentsSeparatedByString(" ")
     
     for word in words {
       if knownGoods.contains(word) {
-        alienGood = word
+        goods = word
       }
     }
     
-    if let alienNumerals = alienNumeralsDictionary.getArrayOfAlienNumerals(query) {
-      if let quantity = alienNumeralsDictionary.readNumber(alienNumerals) {
-        if let unitPrice = goodsDictionary[alienGood] {
+    if let numerals = numeralsDictionary.getArrayOfAlienNumerals(query) {
+      if let quantity = numeralsDictionary.readNumber(numerals) {
+        if let unitPrice = goodsDictionary[goods] {
           price = unitPrice * quantity
-          quantityInAlien = alienNumerals.joinWithSeparator(" ")
+          descriptiveQuantity = numerals.joinWithSeparator(" ")
         }
       }
     }
-    return (quantityInAlien, alienGood, price)
+    return (descriptiveQuantity, goods, price)
   }
   
 }
 
 class InputHandler {
-  var numeralDictionary: AlienNumerals
-  var goodsDictionary: AlienGoods
+  var numerals: AlienNumerals
+  var goods: AlienGoods
   
   init(numeralDictionary: AlienNumerals, goodsDictionary: AlienGoods) {
-    self.goodsDictionary = goodsDictionary
-    self.numeralDictionary = numeralDictionary
+    self.goods = goodsDictionary
+    self.numerals = numeralDictionary
   }
   
   
   func evaluateUserInputString(inputString: String) -> String? {
-    if isAlienNumeralStatement(inputString) {
-      numeralDictionary.parseStatement(inputString)
+    if isNumeralStatement(inputString) {
+      numerals.parseStatement(inputString)
       
-    } else if isAlienGoodsStatement(inputString) {
-      goodsDictionary.parseStatement(inputString)
+    } else if isGoodsStatement(inputString) {
+      goods.parseStatement(inputString)
       
-    } else if isAlienNumberQuery(inputString) {
-      if let number = (numeralDictionary.parseQuery(inputString)) {
+    } else if isNumberQuery(inputString) {
+      if let number = (numerals.parseQuery(inputString)) {
         print("\(number.alienDescription) is \(truncateTrailingZeros(number.value))")
       }
       
-    } else if isAlienGoodsQuery(inputString) {
-      print(goodsDictionary.parseQuery(inputString))
+    } else if isGoodsQuery(inputString) {
+      print(goods.parseQuery(inputString))
     
     }
     return "error"
@@ -235,8 +235,8 @@ class InputHandler {
     return String(number)
   }
  
-  private func isAlienNumeralStatement(inputString: String) -> Bool {
-    let romanNumerals = [String](numeralDictionary.romanNumerals.keys)
+  private func isNumeralStatement(inputString: String) -> Bool {
+    let romanNumerals = [String](numerals.romanNumerals.keys)
     for numeral in romanNumerals {
       if inputString.hasSuffix(numeral) {
         return true
@@ -245,21 +245,21 @@ class InputHandler {
     return false
   }
   
-  private func isAlienGoodsStatement(inputString: String) -> Bool {
+  private func isGoodsStatement(inputString: String) -> Bool {
     if inputString.hasSuffix("Credits") {
       return true
     }
     return false
   }
   
-  private func isAlienNumberQuery(inputString: String) -> Bool {
+  private func isNumberQuery(inputString: String) -> Bool {
     if inputString.containsString("how much is") {
       return true
     }
     return false
   }
   
-  private func isAlienGoodsQuery(inputString: String) -> Bool {
+  private func isGoodsQuery(inputString: String) -> Bool {
     if inputString.containsString("how many Credits is") {
       return true
     }
