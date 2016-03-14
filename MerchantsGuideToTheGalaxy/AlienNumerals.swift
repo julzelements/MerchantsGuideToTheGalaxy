@@ -11,7 +11,11 @@ import Foundation
 class AlienNumerals {
   
   private let romanNumerals = ["I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000]
-  private var alienDictiory = [String: Int]()
+  private var alienDictionary = [String: Int]()
+  
+  var knownNumerals : [String] {
+    return Array(alienDictionary.keys)
+  }
   
   //This function parses a string that can be interpreted as an Alien Numeral Assignment
   //It writes the new AlienNumeral to the alienDictionary in this class
@@ -36,7 +40,7 @@ class AlienNumerals {
     newValue = romanNumerals[words.last!]!
     
     //Possible future error handling: Check alienDictionary is not being overwritten
-    alienDictiory[newNumeral] = newValue
+    alienDictionary[newNumeral] = newValue
   }
   
   
@@ -48,7 +52,7 @@ class AlienNumerals {
   func readNumber(alienNumber: [String]) -> Int? {
     var alienValues = [Int]()
     for numeral in alienNumber {
-      if let alienValue = alienDictiory[numeral] {
+      if let alienValue = alienDictionary[numeral] {
         alienValues.append(alienValue)
       } else {
         return nil
