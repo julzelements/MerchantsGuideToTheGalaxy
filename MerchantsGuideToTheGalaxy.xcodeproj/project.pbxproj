@@ -34,6 +34,8 @@
 		2B706CE11C964622009E686D /* AlienNumerals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AlienNumerals.playground; sourceTree = "<group>"; };
 		2B706CE21C9654EB009E686D /* AlienNumerals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlienNumerals.swift; sourceTree = "<group>"; };
 		2B706CE61C965662009E686D /* AlienGoods.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AlienGoods.playground; sourceTree = "<group>"; };
+		2B706CE71C967995009E686D /* SentenceHandler.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SentenceHandler.playground; sourceTree = "<group>"; };
+		2B706CE81C967D6E009E686D /* WriteAlienNumeral.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WriteAlienNumeral.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,8 @@
 			children = (
 				2B706CE11C964622009E686D /* AlienNumerals.playground */,
 				2B706CE61C965662009E686D /* AlienGoods.playground */,
+				2B706CE71C967995009E686D /* SentenceHandler.playground */,
+				2B706CE81C967D6E009E686D /* WriteAlienNumeral.playground */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
