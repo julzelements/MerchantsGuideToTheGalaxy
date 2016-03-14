@@ -37,6 +37,23 @@ class AlienNumerals {
     alienDictionary[newNumeral] = newValue
   }
   
+  //This function parses a statement of type .AlienNumberQuery
+  //It calculate the value of the AlienNumber using the alienDictionary in this class
+  //It returns an optional tuple containing: (value: Double, array of the AlienNumber: [String]
+  //
+  //Example IO: input: "how much is pish tegj glob glob"
+  //            output: (42.0, ["pish", "tegj", "glob", "glob"])
+  func parseQuery(statement: String) -> (value: Double, alienDescription: String)? {
+    if let numerals = getArrayOfAlienNumerals(statement) {
+      if let value = readNumber(numerals) {
+        let numeralsAsString = numerals.joinWithSeparator(" ")
+        return (value, numeralsAsString)
+      }
+    }
+    return nil
+  }
+  
+  
   //This function reads an alienNumber and an associated alienNumeralDictionary
   //It returns alienNumber interpreted with the alienNumeralDictionary as a Roman Numeral
   //
@@ -54,8 +71,8 @@ class AlienNumerals {
     return calculateRomanNumeral(romanNumeralValues: alienValues)
   }
   
-  //This function reads an array of integers as a roman numeral
-  //Example IO: input:[10, 1, 5]
+  //This function reads an array of Doubles as a roman numeral
+  //Example IO: input:[10.0, 1.0, 5.0]
   //           output: 14
   private func calculateRomanNumeral(romanNumeralValues numerals: [Double]) -> Double {
     var total = Double()
@@ -152,7 +169,7 @@ class AlienGoods {
   
   
   //This function interprets a sentence of type .AlienGoodsQuery
-  //It returns a tuple containing: alienNumber (String), alienGoods (String), value of Goods (Int)
+  //It returns a tuple containing: alienNumber (String), alienGoods (String), value of Goods (Double)
   //
   //Example IO: input: ("how many Credits is glob prok Iron", ["glob": 1, "prok": 5], ["Iron": 20])
   //           output: ("glob prok", "Iron", 782)
@@ -182,19 +199,74 @@ class AlienGoods {
   
 }
 
-class InputProcessor {
+class InputHandler {
+  var numeralDictionary: AlienNumerals
+  var goodsDictionary: AlienGoods
   
-  enum SentenceType {
-    case WriteAlienNumeral
-    case WriteAlienGoods
-    case ReadAlienNumber
-    case ReadAlienGoods
-    case InvalidUserSentence
+  init(numeralDictionary: AlienNumerals, goodsDictionary: AlienGoods) {
+    self.goodsDictionary = goodsDictionary
+    self.numeralDictionary = numeralDictionary
+  }
+  
+  
+  func evaluateUserInputString(inputString: String) -> String? {
+    if isAlienNumeralStatement(inputString) {
+      numeralDictionary.parseStatement(inputString)
+      
+    } else if isAlienGoodsStatement(inputString) {
+      goodsDictionary.parseStatement(inputString)
+      
+    } else if isAlienNumberQuery(inputString) {
+      if let number = (numeralDictionary.parseQuery(inputString)) {
+        print("\(number.alienDescription) is \(truncateTrailingZeros(number.value))")
+      }
+      
+    } else if isAlienGoodsQuery(inputString) {
+      print(goodsDictionary.parseQuery(inputString))
     
-}
-}
+    }
+    return "error"
+  }
+  
+  func truncateTrailingZeros(number: Double) -> String {
+    if number % 1 == 0 {
+      return String(Int(number))
+    }
+    return String(number)
+  }
+ 
+  private func isAlienNumeralStatement(inputString: String) -> Bool {
+    let romanNumerals = [String](numeralDictionary.romanNumerals.keys)
+    for numeral in romanNumerals {
+      if inputString.hasSuffix(numeral) {
+        return true
+      }
+    }
+    return false
+  }
+  
+  private func isAlienGoodsStatement(inputString: String) -> Bool {
+    if inputString.hasSuffix("Credits") {
+      return true
+    }
+    return false
+  }
+  
+  private func isAlienNumberQuery(inputString: String) -> Bool {
+    if inputString.containsString("how much is") {
+      return true
+    }
+    return false
+  }
+  
+  private func isAlienGoodsQuery(inputString: String) -> Bool {
+    if inputString.containsString("how many Credits is") {
+      return true
+    }
+    return false
+  }
 
-
+}
 
 
 
@@ -219,11 +291,16 @@ let testGoodsDictionary = AlienGoods(alienNumerals: testAlienNumerals)
 for statement in testArray {
   testGoodsDictionary.parseStatement(statement)
   let query = testGoodsDictionary.parseQuery(statement)
-  print("\(query.quantity) \(query.alienGood) is \(query.price) Credits")
+//  print("\(query.quantity) \(query.alienGood) is \(query.price) Credits")
 }
 
 print(testGoodsDictionary.goodsDictionary)
 
+//Initialize handler
+  let testHandler = InputHandler(numeralDictionary: testAlienNumerals, goodsDictionary: testGoodsDictionary)
+  for statement in testArray {
+    testHandler.evaluateUserInputString(statement)
+  }
 
 }
 

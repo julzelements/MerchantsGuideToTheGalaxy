@@ -32,6 +32,18 @@ a/Double(b)
 3910.0/20.0
 
 let testdouble: Double = 2.0
-testdouble.
+let testdecimal: Double = 2.5
 
 
+func truncateTrailingZeros(number: Double) -> String {
+  if number % 1 == 0 {
+    return String(Int(number))
+  }
+return String(number)
+}
+
+truncateTrailingZeros(testdouble)
+truncateTrailingZeros(testdecimal)
+
+2.5 % 2
+6.0 % 1
