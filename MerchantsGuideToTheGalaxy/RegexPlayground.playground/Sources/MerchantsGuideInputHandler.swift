@@ -129,25 +129,25 @@ public class MerchantsGuideInputHandler {
   public func handleAlienGoodsQuery(sentence: String, alienNumeralDictionary: [String: Int], alienGoodsDictionary: [String: Int]) -> (price: Int, quantity: String, item: String){
     let words = sentence.componentsSeparatedByString(" ")
     var alienItem = String()
-    var alienItemQuantity = String()
+    var alienItemQuantityDescription = String()
     var alienItemPrice = Int()
     
-   
     if let alienNumerals = getAlienNumeralsFromSentence(sentence, alienNumeralDictionary: alienNumeralDictionary) {
-      alienItemQuantity = alienNumerals.joinWithSeparator(" ")
-      if let alienItemQuantity = getAlienNumberValue(alienNumerals, alienNumeralDictionary: alienNumeralDictionary) {
+      alienItemQuantityDescription = alienNumerals.joinWithSeparator(" ")
+      if let quantity = getAlienNumberValue(alienNumerals, alienNumeralDictionary: alienNumeralDictionary) {
         let alienGoods = Array(alienGoodsDictionary.keys)
         
         for word in words {
           if alienGoods.contains(word) {
             alienItem = word
+            
+            alienItemPrice = alienGoodsDictionary[alienItem]! * quantity
           }
-        alienItemPrice = alienItemQuantity * alienGoodsDictionary[alienItem]!
-      
         }
       }
     }
-    return (alienItemPrice, alienItemQuantity, alienItem)
+    
+    return (alienItemPrice, alienItemQuantityDescription, alienItem)
   }
 
 

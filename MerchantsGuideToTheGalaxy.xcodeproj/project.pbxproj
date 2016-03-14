@@ -29,6 +29,7 @@
 		2B706CD71C952FB7009E686D /* intepretingAlienNumerals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = intepretingAlienNumerals.playground; sourceTree = "<group>"; };
 		2B706CD81C95559B009E686D /* IdentifyAlienGoods.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = IdentifyAlienGoods.playground; sourceTree = "<group>"; };
 		2B706CDC1C957D4C009E686D /* multilines.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = multilines.playground; sourceTree = "<group>"; };
+		2B706CDD1C963883009E686D /* errorHandling.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = errorHandling.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +46,7 @@
 		2B260FF31C9001AF004CC82D = {
 			isa = PBXGroup;
 			children = (
+				2B706CDD1C963883009E686D /* errorHandling.playground */,
 				2B706CDC1C957D4C009E686D /* multilines.playground */,
 				2B706CD81C95559B009E686D /* IdentifyAlienGoods.playground */,
 				2B706CD71C952FB7009E686D /* intepretingAlienNumerals.playground */,
