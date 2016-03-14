@@ -12,6 +12,7 @@
 		2B2610051C9001B0004CC82D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2610031C9001B0004CC82D /* Main.storyboard */; };
 		2B2610071C9001B0004CC82D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B2610061C9001B0004CC82D /* Assets.xcassets */; };
 		2B26100A1C9001B0004CC82D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2610081C9001B0004CC82D /* LaunchScreen.storyboard */; };
+		2B706CE31C9654EB009E686D /* AlienNumerals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B706CE21C9654EB009E686D /* AlienNumerals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		2B706CDC1C957D4C009E686D /* multilines.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = multilines.playground; sourceTree = "<group>"; };
 		2B706CDD1C963883009E686D /* errorHandling.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = errorHandling.playground; sourceTree = "<group>"; };
 		2B706CE11C964622009E686D /* AlienNumerals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AlienNumerals.playground; sourceTree = "<group>"; };
+		2B706CE21C9654EB009E686D /* AlienNumerals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlienNumerals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			children = (
 				2B260FFF1C9001B0004CC82D /* AppDelegate.swift */,
 				2B2610011C9001B0004CC82D /* ViewController.swift */,
+				2B706CE21C9654EB009E686D /* AlienNumerals.swift */,
 				2B2610031C9001B0004CC82D /* Main.storyboard */,
 				2B2610061C9001B0004CC82D /* Assets.xcassets */,
 				2B2610081C9001B0004CC82D /* LaunchScreen.storyboard */,
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B2610021C9001B0004CC82D /* ViewController.swift in Sources */,
+				2B706CE31C9654EB009E686D /* AlienNumerals.swift in Sources */,
 				2B2610001C9001B0004CC82D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
