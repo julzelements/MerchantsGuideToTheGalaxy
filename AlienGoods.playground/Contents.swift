@@ -73,6 +73,30 @@ class AlienNumerals {
     return total
   }
   
+  //This function scans an input statement for alienNumerals(keys) in the alienNumeralDictionary
+  //It returns any found numerals ordered in an array or nil if no alienNumerals are found
+  //
+  //Example IO: input: "glob glob silver is 34 Credits"
+  //           output: ["glob", "glob"]
+  func getArrayOfAlienNumerals(sentence: String)-> [String]? {
+    var alienNumerals = [String]()
+    
+    
+    let words = sentence.componentsSeparatedByString(" ")
+    
+    for word in words {
+      if knownNumerals.contains(word) {
+        alienNumerals.append(word)
+      }
+    }
+    
+    if alienNumerals.isEmpty {
+      return nil
+    } else {
+      return alienNumerals
+    }
+  }
+  
 }
 
 
@@ -101,35 +125,27 @@ class AlienGoods {
     var credits = Int()
     var goodsValue = Int()
     var alienGood = String()
-    var alienNumber = [String]()
-    
+
     //Search statement for Int
     for word in words {
       if let number = Int(word) {
         credits = number
       }
     }
-    
+
     //AlienGood is on LHS of word "is"
     if words.contains("is") {
       if let indexOfTheWordIs = words.indexOf("is") {
         alienGood = words[indexOfTheWordIs - 1]
       }
     }
-    
+
     //Create array of all the alienNumerals in the statement
-    for word in words {
-      if alienNumeralsDictionary.knownNumerals.contains(word) {
-        alienNumber.append(word)
-      }
-    }
-    
-    //Use the alienNumeralsDictionary to read the alienNumberArray
-    if alienNumber.isEmpty != true {
+    if let alienNumber = alienNumeralsDictionary.getArrayOfAlienNumerals(statement) {
       goodsValue = alienNumeralsDictionary.readNumber(alienNumber)!
     }
-    
-    //Write the calculated goods value to the goodsDictionary
+
+//    Write the calculated goods value to the goodsDictionary
     if credits != 0 {
       goodsDictionary[alienGood] = (credits / goodsValue)
     }
@@ -150,7 +166,7 @@ class AlienGoods {
 
 
 
-
+  
 
 
 
