@@ -90,6 +90,7 @@ class AlienGoods {
   var knownGoods : [String] {
     return Array(goodsDictionary.keys)
   }
+  
   //This function interprets a sentence of type .AlienGoodsValueInput
   //It writes the key:value pair to the goodsDictionary in the class instance
   //
@@ -132,16 +133,17 @@ class AlienGoods {
     if credits != 0 {
       goodsDictionary[alienGood] = (credits / goodsValue)
     }
-
   }
   
-  func parseQuery(query: String) {
+  func parseQuery(query: String) -> (quantity: String, alienGood: String, credits: Int) {
+    var quantity = String()
+    var alienGood = String()
+    var credits = Int()
     
+    return (quantity, alienGood, credits)
   }
   
 }
-
-
 
 
 
@@ -176,6 +178,8 @@ for statement in testArray {
 for statement in testArray {
   testGoodsDictionary.parseStatement(statement)
   testGoodsDictionary.parseQuery(statement)
+  let query = testGoodsDictionary.parseQuery(statement)
+  print("\(query.quantity) \(query.alienGood) is \(query.credits) Credits")
 }
 
 print(testGoodsDictionary.goodsDictionary)
