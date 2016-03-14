@@ -16,9 +16,9 @@ class ViewController: UIViewController {
   
   
   override func viewDidLoad() {
-    let alienNumerals = AlienNumerals()
-    let goodsDictionary = AlienGoods(alienNumerals: alienNumerals)
-    let inputHandler = InputHandler(numeralDictionary: alienNumerals, goodsDictionary: goodsDictionary)
+    alienNumerals = AlienNumerals()
+    goodsDictionary = AlienGoods(alienNumerals: alienNumerals)
+    inputHandler = InputHandler(numeralDictionary: alienNumerals, goodsDictionary: goodsDictionary)
 //    for statement in testArray {
 //      inputHandler.evaluateUserInputString(statement)
 //    }
@@ -31,7 +31,11 @@ class ViewController: UIViewController {
   @IBOutlet weak var testOutput: UITextView!
   
   @IBAction func convertUnits(sender: UIButton) {
-    print(programInput.text)
+//    print(programInput.text)
+    let inputTextAsArray = programInput.text
+    inputHandler.evaluateUserInputString(inputTextAsArray)
+    
+    testOutput.text = inputHandler.parsedOutput.joinWithSeparator(" ")
     runTest()
   }
   

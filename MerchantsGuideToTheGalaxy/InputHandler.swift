@@ -20,7 +20,7 @@ class InputHandler {
   }
   
   
-  func evaluateUserInputString(inputString: String) -> String? {
+  func evaluateUserInputString(inputString: String) {
     if isNumeralStatement(inputString) {
       numerals.parseStatement(inputString)
       
@@ -40,8 +40,9 @@ class InputHandler {
       parsedOutput.append(outputString)
       //      print("\(query.quantity) \(query.numerals) is \(removeZeros(query.price)) Credits")
       
+    } else {
+      parsedOutput.append("I have no idea what you are talking about")
     }
-    return "error"
   }
   
   private func removeZeros(number: Double) -> String {

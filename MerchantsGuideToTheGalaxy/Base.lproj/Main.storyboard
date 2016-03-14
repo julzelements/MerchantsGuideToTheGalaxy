@@ -25,12 +25,13 @@
                                     <action selector="convertUnits:" destination="BYZ-38-t0r" eventType="touchUpInside" id="etW-mY-iGb"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="5" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="o6h-yf-tqA">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="o6h-yf-tqA">
                                 <rect key="frame" x="20" y="352" width="276" height="228"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="266" id="IyR-3K-jMp"/>
                                 </constraints>
+                                <string key="text">pish tegj glob glob is 42glob prok Silver is 68 Creditsglob prok Gold is 57800 Creditsglob prok Iron is 782 CreditsI have no idea what you are talking about</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="default">
@@ -57,12 +58,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="5" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mzp-22-OPi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Program Output" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpw-cD-Cha">
+                                <rect key="frame" x="380" y="323" width="124" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mzp-22-OPi">
                                 <rect key="frame" x="20" y="57" width="560" height="220"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="257" id="Z0j-2O-J3X"/>
                                 </constraints>
+                                <string key="text">glob is Iprok is Vpish is Xtegj is Lglob glob Silver is 34 Creditsglob prok Gold is 57800 Creditspish pish Iron is 3910 Creditshow much is pish tegj glob glob ?how many Credits is glob prok Silver ?how many Credits is glob prok Gold ?how many Credits is glob prok Iron ?how much wood could a woodchuck chuck if a woodchuck could chuck wood ?</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="default">
@@ -71,12 +79,6 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Program Output" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpw-cD-Cha">
-                                <rect key="frame" x="380" y="323" width="124" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
