@@ -51,13 +51,13 @@ class AlienNumerals {
         return nil
       }
     }
-    return calculateRomanNumeral(romanNumeralInts: alienValues)
+    return calculateRomanNumeral(romanNumeralValues: alienValues)
   }
   
   //This function reads an array of integers as a roman numeral
   //Example IO: input:[10, 1, 5]
   //           output: 14
-  private func calculateRomanNumeral(romanNumeralInts numerals: [Double]) -> Double {
+  private func calculateRomanNumeral(romanNumeralValues numerals: [Double]) -> Double {
     var total = Double()
     let reversed = Array(numerals.reverse())
     
@@ -101,8 +101,6 @@ class AlienNumerals {
 
 
 
-
-
 class AlienGoods {
   var alienNumeralsDictionary: AlienNumerals
   var goodsDictionary = [String: Double]()
@@ -126,7 +124,7 @@ class AlienGoods {
     var goodsValue = Double()
     var alienGood = String()
 
-    //Search statement for Int
+    //Search statement for Double
     for word in words {
       if let number = Double(word) {
         credits = number
@@ -184,17 +182,24 @@ class AlienGoods {
   
 }
 
-
-
-
-
-
+class InputProcessor {
   
+  enum SentenceType {
+    case WriteAlienNumeral
+    case WriteAlienGoods
+    case ReadAlienNumber
+    case ReadAlienGoods
+    case InvalidUserSentence
+    
+}
+}
 
 
 
 
 
+func runTest() {
+  
 let testInput = "glob is I\nprok is V\npish is X\ntegj is L\nglob glob Silver is 34 Credits\nglob prok Gold is 57800 Credits\npish pish Iron is 3910 Credits\nhow much is pish tegj glob glob ?\nhow many Credits is glob prok Silver ?\nhow many Credits is glob prok Gold ?\nhow many Credits is glob prok Iron ?\nhow much wood could a woodchuck chuck if a woodchuck could chuck wood ?"
 
 let testArray = testInput.componentsSeparatedByString("\n")
@@ -210,9 +215,6 @@ for statement in testArray {
 //Initialize Goods
 let testGoodsDictionary = AlienGoods(alienNumerals: testAlienNumerals)
 
-for statement in testArray {
-  testArray
-}
 
 for statement in testArray {
   testGoodsDictionary.parseStatement(statement)
@@ -223,5 +225,6 @@ for statement in testArray {
 print(testGoodsDictionary.goodsDictionary)
 
 
+}
 
-
+runTest()
