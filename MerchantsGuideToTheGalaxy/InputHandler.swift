@@ -20,7 +20,9 @@ class InputHandler {
   }
   
   
-  func evaluateUserInputString(inputString: String) {
+  func evaluateUserInputString(multilineInput : String) {
+    let inputArray = multilineInput.componentsSeparatedByString("\n")
+    for inputString in inputArray {
     if isNumeralStatement(inputString) {
       numerals.parseStatement(inputString)
       
@@ -42,6 +44,7 @@ class InputHandler {
       
     } else {
       parsedOutput.append("I have no idea what you are talking about")
+    }
     }
   }
   

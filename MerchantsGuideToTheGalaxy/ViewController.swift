@@ -15,35 +15,39 @@ class ViewController: UIViewController {
   var inputHandler: InputHandler!
   
   
-  override func viewDidLoad() {
-    alienNumerals = AlienNumerals()
-    goodsDictionary = AlienGoods(alienNumerals: alienNumerals)
-    inputHandler = InputHandler(numeralDictionary: alienNumerals, goodsDictionary: goodsDictionary)
-//    for statement in testArray {
-//      inputHandler.evaluateUserInputString(statement)
-//    }
-//    let testOutputString = inputHandler.parsedOutput.joinWithSeparator("\n")
-//    print(testOutputString)
-  }
-  
   @IBOutlet weak var programInput: UITextView!
   @IBOutlet weak var programOutput: UITextView!
   @IBOutlet weak var testOutput: UITextView!
   
   @IBAction func convertUnits(sender: UIButton) {
-//    print(programInput.text)
-    let inputTextAsArray = programInput.text
-    inputHandler.evaluateUserInputString(inputTextAsArray)
-    
-    testOutput.text = inputHandler.parsedOutput.joinWithSeparator(" ")
-    runTest()
+    loadObjects()
+    handleInput()
+    runUITest()
+    disposeOfObjects()
   }
   
-  func runTest() {
+  func runUITest() {
     //If the testOutput and the ProgramOutput are the same, the Output will show green
     var testResultColor: UIColor
     testResultColor = (programOutput.text == testOutput.text ? UIColor.greenColor() : UIColor.redColor())
     programOutput.backgroundColor = testResultColor
+  }
+  
+  func loadObjects() {
+    alienNumerals = AlienNumerals()
+    goodsDictionary = AlienGoods(alienNumerals: alienNumerals)
+    inputHandler = InputHandler(numeralDictionary: alienNumerals, goodsDictionary: goodsDictionary)
+  }
+  
+  func disposeOfObjects() {
+    alienNumerals = nil
+    goodsDictionary = nil
+    inputHandler = nil
+  }
+  
+  func handleInput() {
+    inputHandler.evaluateUserInputString(programInput.text)
+    programOutput.text = inputHandler.parsedOutput.joinWithSeparator("\n")
   }
 
 }
