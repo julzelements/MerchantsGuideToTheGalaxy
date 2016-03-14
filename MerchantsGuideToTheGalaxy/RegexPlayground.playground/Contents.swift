@@ -33,6 +33,9 @@ func handleUserStatements(statements: [String], handler: MerchantsGuideInputHand
       print("error ReadAlienNumber")
       }
     case .ReadAlienGoods: print("\(statement) is Alien Goods Query")
+    let item = handler.handleAlienGoodsQuery(statement, alienNumeralDictionary: alienNumerals, alienGoodsDictionary: alienGoods)
+      print("\(item.item) \(item.quantity) is \(item.price)")
+      
     case .InvalidUserSentence: print("\(statement) is invalid user sentence")
     }
   }
