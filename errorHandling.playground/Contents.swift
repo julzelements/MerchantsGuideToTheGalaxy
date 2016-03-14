@@ -29,6 +29,9 @@ let b: Int = 2
 
 a/Double(b)
 
+3910.0/20.0
 
+let testdouble: Double = 2.0
+testdouble.
 
 

@@ -4,8 +4,8 @@ import Foundation
 
 class AlienNumerals {
   
-  private let romanNumerals = ["I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000]
-  private var alienDictionary = [String: Int]()
+  private let romanNumerals:[String: Double] = ["I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000]
+  private var alienDictionary = [String: Double]()
   
   var knownNumerals : [String] {
     return Array(alienDictionary.keys)
@@ -19,7 +19,7 @@ class AlienNumerals {
   func parseStatement(statement: String) {
     let words = statement.componentsSeparatedByString(" ")
     var newNumeral =  String()
-    var newValue = Int()
+    var newValue = Double()
     
     guard words.count == 3 else {
       print("error: word count of alienNumeralAssignment statement != 3")
@@ -42,8 +42,8 @@ class AlienNumerals {
   //
   //Example IO: input: (["prok", "glob", "glob"], ["glob": 1, "prok": 5])
   //            output: 7
-  func readNumber(alienNumber: [String]) -> Int? {
-    var alienValues = [Int]()
+  func readNumber(alienNumber: [String]) -> Double? {
+    var alienValues = [Double]()
     for numeral in alienNumber {
       if let alienValue = alienDictionary[numeral] {
         alienValues.append(alienValue)
@@ -57,8 +57,8 @@ class AlienNumerals {
   //This function reads an array of integers as a roman numeral
   //Example IO: input:[10, 1, 5]
   //           output: 14
-  private func calculateRomanNumeral(romanNumeralInts numerals: [Int]) -> Int {
-    var total = Int()
+  private func calculateRomanNumeral(romanNumeralInts numerals: [Double]) -> Double {
+    var total = Double()
     let reversed = Array(numerals.reverse())
     
     total += reversed[0]
@@ -105,7 +105,7 @@ class AlienNumerals {
 
 class AlienGoods {
   var alienNumeralsDictionary: AlienNumerals
-  var goodsDictionary = [String: Int]()
+  var goodsDictionary = [String: Double]()
   
   init(alienNumerals: AlienNumerals) {
     self.alienNumeralsDictionary = alienNumerals
@@ -122,13 +122,13 @@ class AlienGoods {
   //           output: goodsDictionary[Silver] = 34
   func parseStatement(statement: String) {
     let words = statement.componentsSeparatedByString(" ")
-    var credits = Int()
-    var goodsValue = Int()
+    var credits = Double()
+    var goodsValue = Double()
     var alienGood = String()
 
     //Search statement for Int
     for word in words {
-      if let number = Int(word) {
+      if let number = Double(word) {
         credits = number
       }
     }
@@ -158,10 +158,10 @@ class AlienGoods {
   //
   //Example IO: input: ("how many Credits is glob prok Iron", ["glob": 1, "prok": 5], ["Iron": 20])
   //           output: ("glob prok", "Iron", 782)
-  func parseQuery(query: String) -> (quantity: String, alienGood: String, price: Int) {
+  func parseQuery(query: String) -> (quantity: String, alienGood: String, price: Double) {
     var quantityInAlien = String()
     var alienGood = String()
-    var price = Int()
+    var price = Double()
     
     let words = query.componentsSeparatedByString(" ")
     
