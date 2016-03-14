@@ -151,12 +151,35 @@ class AlienGoods {
     }
   }
   
-  func parseQuery(query: String) -> (quantity: String, alienGood: String, credits: Int) {
-    var quantity = String()
+  
+  
+  //This function interprets a sentence of type .AlienGoodsQuery
+  //It returns a tuple containing: alienNumber (String), alienGoods (String), value of Goods (Int)
+  //
+  //Example IO: input: ("how many Credits is glob prok Iron", ["glob": 1, "prok": 5], ["Iron": 20])
+  //           output: ("glob prok", "Iron", 782)
+  func parseQuery(query: String) -> (quantity: String, alienGood: String, price: Int) {
+    var quantityInAlien = String()
     var alienGood = String()
-    var credits = Int()
+    var price = Int()
     
-    return (quantity, alienGood, credits)
+    let words = query.componentsSeparatedByString(" ")
+    
+    for word in words {
+      if knownGoods.contains(word) {
+        alienGood = word
+      }
+    }
+    
+    if let alienNumerals = alienNumeralsDictionary.getArrayOfAlienNumerals(query) {
+      if let quantity = alienNumeralsDictionary.readNumber(alienNumerals) {
+        if let unitPrice = goodsDictionary[alienGood] {
+          price = unitPrice * quantity
+          quantityInAlien = alienNumerals.joinWithSeparator(" ")
+        }
+      }
+    }
+    return (quantityInAlien, alienGood, price)
   }
   
 }
@@ -193,9 +216,8 @@ for statement in testArray {
 
 for statement in testArray {
   testGoodsDictionary.parseStatement(statement)
-  testGoodsDictionary.parseQuery(statement)
   let query = testGoodsDictionary.parseQuery(statement)
-  print("\(query.quantity) \(query.alienGood) is \(query.credits) Credits")
+  print("\(query.quantity) \(query.alienGood) is \(query.price) Credits")
 }
 
 print(testGoodsDictionary.goodsDictionary)

@@ -22,3 +22,13 @@ if let newString = empty {
 
 
 print(errorString)
+
+
+let a: Double = 5
+let b: Int = 2
+
+a/Double(b)
+
+
+
+
