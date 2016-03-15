@@ -27,7 +27,7 @@ class ViewController: UIViewController {
   }
   
   func runUITest() {
-    //If the testOutput and the ProgramOutput are the same, the Output will show green
+    //If the text in testOutput and ProgramOutput are the same, the Output will show green
     var testResultColor: UIColor
     testResultColor = (programOutput.text == testOutput.text ? UIColor.greenColor() : UIColor.redColor())
     programOutput.backgroundColor = testResultColor
