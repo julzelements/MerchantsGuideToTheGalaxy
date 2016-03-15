@@ -31,11 +31,7 @@ class AlienNumerals {
       print("error: word count of alienNumeralAssignment statement != 3")
       return
     }
-    guard words.last != nil else {
-      print("error: supplied numeral not found in RomanNumerals dictionary")
-      return
-    }
-    
+  
     newNumeral = words[0]
     newValue = romanNumerals[words.last!]!
     

@@ -24,6 +24,9 @@ The output will appear in the bottom right hand textbox marked: "Program Output"
 command+A, Command+c and command+v all work with the Simulator
 command+(left arrow) can rotate the screen for more screen real estate.
 
+Source Files:
+All the classes and view controllers are in "MerchantsGuideToTheGalaxy" folder.
+
 Additional Functionality:
 Although it was not requested, I added functionality.
 If the text in "Program Output" matches the text in "Test Output", 
