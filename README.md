@@ -32,3 +32,17 @@ Although it was not requested, I added functionality.
 If the text in "Program Output" matches the text in "Test Output", 
 "Program Output" will highlight a green colour.
 Use this function to easily test additional inputs.
+
+
+
+Known Bad Functionality:
+The RomanNumeral Reader will only give a correct result for a correct roman numeral.
+As thus, an invalid numeral will give an incorrect result that appears valid!
+This really needs to be fixed. : (
+
+
+Final note:
+This was a pretty massive undertaking. 
+I had a great time on the weekend that I wrote this.
+It has quashed all remaining doubt that I had about wanting to be a programmer.
+For this, I guess I owe you guys one!

@@ -25,7 +25,8 @@
 		2B2610061C9001B0004CC82D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = MerchantsGuideToTheGalaxy/Assets.xcassets; sourceTree = "<group>"; };
 		2B2610091C9001B0004CC82D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B26100B1C9001B0004CC82D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = MerchantsGuideToTheGalaxy/Info.plist; sourceTree = "<group>"; };
-		2B655C7A1C97FA8900B58050 /* isLegalNumeral.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = isLegalNumeral.playground; sourceTree = "<group>"; };
+		2B655C7A1C97FA8900B58050 /* checkFourInARow.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = checkFourInARow.playground; sourceTree = "<group>"; };
+		2B655C7B1C98053100B58050 /* checkIV.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = checkIV.playground; sourceTree = "<group>"; };
 		2B706CA71C92C85B009E686D /* RomanNumerals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = RomanNumerals.playground; path = MerchantsGuideToTheGalaxy/RomanNumerals.playground; sourceTree = "<group>"; };
 		2B706CA81C93DB34009E686D /* RegexPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = RegexPlayground.playground; path = MerchantsGuideToTheGalaxy/RegexPlayground.playground; sourceTree = "<group>"; };
 		2B706CA91C94E19B009E686D /* Archived.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Archived.playground; path = MerchantsGuideToTheGalaxy/Archived.playground; sourceTree = "<group>"; };
@@ -93,7 +94,8 @@
 				2B706CD81C95559B009E686D /* IdentifyAlienGoods.playground */,
 				2B706CD71C952FB7009E686D /* intepretingAlienNumerals.playground */,
 				2B706CD61C952B3C009E686D /* CastingStrings.playground */,
-				2B655C7A1C97FA8900B58050 /* isLegalNumeral.playground */,
+				2B655C7A1C97FA8900B58050 /* checkFourInARow.playground */,
+				2B655C7B1C98053100B58050 /* checkIV.playground */,
 			);
 			name = Tests;
 			sourceTree = "<group>";

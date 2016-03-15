@@ -55,14 +55,8 @@ class AlienNumerals {
     return nil
   }
   
-  func isLegalNumeral(numeral: [Double]) -> Bool {
-    //Check for two 5's in a row. 
-    //Check for more than 3 digits in a row
-    //
-    return false
-  }
-  
-  
+  //NOTE: This function never ended up getting hooked up.
+  //As a result, It will return invalid values for invalid roman numerals.
   //Check four in a row patten
   //Fail: [X, X, X, X]
   //Pass: [X, X, X, I, X]
