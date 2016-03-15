@@ -55,6 +55,34 @@ class AlienNumerals {
     return nil
   }
   
+  func isLegalNumeral(numeral: [Double]) -> Bool {
+    //Check for two 5's in a row. 
+    //Check for more than 3 digits in a row
+    //
+    return false
+  }
+  
+  
+  //Check four in a row patten
+  //Fail: [X, X, X, X]
+  //Pass: [X, X, X, I, X]
+  private func checkFourInARow(numeral: [Double]) -> Bool {
+    let count = numeral.count
+    if count >= 4 {
+      for i in 0...(count - 4){
+        print(count - 3)
+        let a = numeral[i]
+        let b = numeral[i + 1]
+        let c = numeral[i + 2]
+        let d = numeral[i + 3]
+        
+        if a == b && b == c && c == d {
+          return false
+        }
+      }
+    }
+    return true
+  }
   
   //This function reads an alienNumber and an associated alienNumeralDictionary
   //It returns alienNumber interpreted with the alienNumeralDictionary as a Roman Numeral
@@ -99,16 +127,12 @@ class AlienNumerals {
   //           output: ["glob", "glob"]
   func getArrayOfAlienNumerals(sentence: String)-> [String]? {
     var alienNumerals = [String]()
-    
-    
     let words = sentence.componentsSeparatedByString(" ")
-    
     for word in words {
       if knownNumerals.contains(word) {
         alienNumerals.append(word)
       }
     }
-    
     if alienNumerals.isEmpty {
       return nil
     } else {

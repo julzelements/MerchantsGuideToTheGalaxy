@@ -7,6 +7,13 @@ import UIKit
 let testAlienDictionary = ["glob": 1, "prok": 5, "pish": 10, "tegj": 50]
 let testAlienNumeral = ["pish", "tegj", "glob", "glob"]
 
+func isLegalNumeral(numeral: [String]) -> Bool {
+  return false
+}
+
+
+
+
 func getAlienCompoundNumeralValue(alienNumerals: [String], alienNumeralDictionary: [String: Int]) -> Int {
   var alienValues = [Int]()
   for numeral in alienNumerals {
